@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./horarios.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=OT Neue Montreal:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica Neue:wght@400&display=swap" />
+    <title>Concept Cero - Base</title>
+  </head>
+  <body>
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR: Compartida en todas las páginas -->
+    <div class="barra-nav-superior">
+      <div class="logo-barra-nav-wrapper">
+        <a href="index.html" class="logo-barra-nav" id="logoBtn">
+          <img class="logo-barra-nav-positive" loading="lazy" alt="" src="./img/logo-negro.svg" />
+        </a>
+      </div>
+      <div class="barra-nav-contenedor">
+        <a href="metodo.html" class="barra-nav-boton" id="metodoBtn">
+          <div class="boton">EL MÉTODO</div>
+        </a>
+        <a href="tarifas.html" class="barra-nav-boton" id="tarifasBtn">
+          <div class="boton">TARIFAS</div>
+        </a>
+        <a href="horarios.html" class="barra-nav-boton" id="horariosBtn">
+          <div class="boton">HORARIOS</div>
+        </a>
+        <a href="club.html" class="barra-nav-boton" id="clubBtn">
+          <div class="boton">EL CLUB</div>
+        </a>
+        <a href="contacto.html" class="barra-nav-boton" id="contactoBtn">
+          <div class="boton">CONTACTO</div>
+        </a>
+      </div>
+      <div class="barra-nav-contenedor">
+        <a href="unete-al-club.html" class="barra-nav-boton" id="uneteBtn">
+          <div class="boton">ÚNETE AL CLUB</div>
+        </a>
+        <a href="base-pagina.html" class="barra-nav-boton-negro" id="reservarBtn">
+          <!-- Enlace a base-pagina.html a propósito -->
+          <div class="boton-reservar">RESERVAR</div>
+        </a>
+      </div>
+      <!-- Puntos decorativos bajo la nav -->
+      <div class="cuadrados-barra-nav">
+        <div class="cuadrado-negro"></div>
+        <div class="cuadrado-negro"></div>
+        <div class="cuadrado-negro"></div>
+      </div>
+    </div>
+
+    <div class="home">
+      <!-- BLOQUE DE IDENTIDAD: AM - WELLNESS CLUB - PM -->
+      <section class="logorario-parent">
+        <h3 class="logorario-horas">( 01 ) AM</h3>
+        <div class="wellness-rotado">WELLNESS CLUB</div>
+        <h3 class="logorario-horas">( 02 ) PM</h3>
+      </section>
+
+      <main class="contenido-base">
+        <!-- CONTENIDO ÚNICO DE LA PÁGINA -->
+        <div class="bloque-contenido-base" style="height: auto; min-height: var(--Frame-Size-fullHeight)">
+          <div class="titulo-wrapper">
+            <h1 class="titulo">HORARIOS</h1>
+          </div>
+          <!-- Calendar Filters Section -->
+          <div class="calendar-filters">
+            <div class="filter-dropdown-wrapper">
+              <select class="filter-dropdown">
+                <option value="">Todas las salas</option>
+              </select>
+            </div>
+            <div class="filter-dropdown-wrapper">
+              <select class="filter-dropdown">
+                <option value="">Todo el día</option>
+              </select>
+            </div>
+            <div class="filter-dropdown-wrapper">
+              <select class="filter-dropdown">
+                <option value="">Todas las actividades</option>
+              </select>
+            </div>
+          </div>
+          <!-- Calendar Section -->
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <div class="day-name">LUN</div>
+              <div class="day-name">MAR</div>
+              <div class="day-name">MIÉ</div>
+              <div class="day-name">JUE</div>
+              <div class="day-name">VIE</div>
+              <div class="day-name">SÁB</div>
+              <div class="day-name">DOM</div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+              <!-- Calendar days will be inserted here by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- FOOTER: Compartido en todas las páginas -->
+      <div class="footer">
+        <div class="footer-container">
+          <section class="footer-section">
+            <div class="footer-wrapper">
+              <!-- COLUMNA 1 -->
+              <div class="footer-columna">
+                <a href="https://maps.app.goo.gl/vLpYwZ1" target="_blank" class="footer-link">
+                  <div class="footer-texto">CELSO EMILIO FERREIRO , 41 32003 OURENSE</div>
+                </a>
+                <a href="tel:+34988123456" class="footer-link">
+                  <div class="footer-texto">( +34 ) 988 123 456</div>
+                </a>
+                <a href="mailto:info@conceptcero-wellnessclub.com" class="footer-link">
+                  <div class="footer-texto">INFO@CONCEPTCERO-WELLNESSCLUB.COM</div>
+                </a>
+              </div>
+
+              <!-- COLUMNA 2 -->
+              <div class="footer-columna">
+                <div class="footerbtn">
+                  <div class="footer-texto">LUNES A VIERNES DE 7.00H A 22.00H</div>
+                </div>
+                <div class="footerbtn">
+                  <div class="footer-texto">SÁBADO Y DOMINGO DE 9.00H A 14.00H</div>
+                </div>
+              </div>
+
+              <!-- COLUMNA 3 -->
+              <div class="footer-columna">
+                <a href="https://www.instagram.com/concept" target="_blank" class="footer-link">
+                  <div class="footer-texto">INSTAGRAM</div>
+                </a>
+                <a href="https://www.tiktok.com/@concept" target="_blank" class="footer-link">
+                  <div class="footer-texto">TIKTOK</div>
+                </a>
+              </div>
+
+              <!-- COLUMNA 4 -->
+              <div class="footer-columna">
+                <a href="faqs.html" class="footer-link">
+                  <div class="footer-texto">FAQS</div>
+                </a>
+                <a href="cookies.html" class="footer-link">
+                  <div class="footer-texto">POLÍTICA DE COOKIES</div>
+                </a>
+                <a href="privacidad.html" class="footer-link">
+                  <div class="footer-texto">POLÍTICA DE PRIVACIDAD</div>
+                </a>
+                <a href="terminos.html" class="footer-link">
+                  <div class="footer-texto">TÉRMINOS Y CONDICIONES</div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="concept-cero-wellness">CONCEPT CERO WELLNESS CLUB @ALL RIGHTS RESERVED</div>
+          </section>
+          <div class="mainlogotype">
+            <img class="mainlogotype-negative" loading="lazy" alt="" src="./img/logo-crema.svg" />
+          </div>
+          <div class="cuadrados-footer">
+            <div class="cuadrado-fondo"></div>
+            <div class="cuadrado-fondo"></div>
+            <div class="cuadrado-fondo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector(".barra-nav-superior");
+        const logoBtn = document.getElementById("logoBtn");
+
+        // Función para manejar el colapso según el scroll
+        window.addEventListener("scroll", () => {
+          if (window.innerWidth <= 768) {
+            if (window.scrollY > 20) {
+              nav.classList.add("colapsada");
+            } else {
+              nav.classList.remove("colapsada");
+            }
+          }
+        });
+
+        // Expandir al clickar el logo si la barra está colapsada
+        logoBtn.addEventListener("click", (e) => {
+          if (window.innerWidth <= 768 && nav.classList.contains("colapsada")) {
+            e.preventDefault();
+            nav.classList.remove("colapsada");
+          }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const calendarGrid = document.getElementById("calendarGrid");
+        const classTypes = ["Funcional", "Pilates Reformer", "Barre", "Entrenamiento Personal"];
+        const classTimes = ["09:00", "10:00", "11:00", "17:00", "18:00", "19:00"];
+
+        function getRandomClasses() {
+          const numClasses = Math.floor(Math.random() * 3); // 0, 1, or 2 classes
+          const classes = [];
+          for (let i = 0; i < numClasses; i++) {
+            const type = classTypes[Math.floor(Math.random() * classTypes.length)];
+            const time = classTimes[Math.floor(Math.random() * classTimes.length)];
+            classes.push(`${time} - ${type}`);
+          }
+          return classes;
+        }
+
+        function generateCalendar() {
+          const today = new Date();
+          let currentDay = new Date(today);
+          // Set to Monday of the current week (adjust for Sunday being 0)
+          currentDay.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1));
+
+          let lastMonthDisplayed = -1;
+
+          for (let i = 0; i < 28; i++) {
+            // 4 weeks * 7 days
+            const dayCell = document.createElement("div");
+            dayCell.classList.add("calendar-day");
+
+            // Day number
+            const dayNumber = document.createElement("div");
+            dayNumber.classList.add("day-number");
+            dayNumber.textContent = currentDay.getDate();
+            dayCell.appendChild(dayNumber);
+
+            const monthYear = document.createElement("div");
+            monthYear.classList.add("month-year");
+            // Only display month/year on the first day of the calendar or when the month changes
+            if (i === 0 || currentDay.getDate() === 1 || (i > 0 && currentDay.getDate() < 7 && currentDay.getMonth() !== lastMonthDisplayed)) {
+              // Show month on first day of calendar, or first day of month, or first day of week if month changed
+              monthYear.textContent = currentDay.toLocaleString("es-ES", { month: "short" });
+              // Optionally add year if it's the first day of the year or first day of calendar
+              if (i === 0 || (currentDay.getMonth() === 0 && currentDay.getDate() === 1)) {
+                monthYear.textContent += ` ${currentDay.getFullYear()}`;
+              }
+              lastMonthDisplayed = currentDay.getMonth();
+            }
+            dayCell.appendChild(monthYear); // Always append to reserve space
+
+            const classesContainer = document.createElement("div");
+            classesContainer.classList.add("classes-container");
+            const classes = getRandomClasses();
+            if (classes.length > 0) {
+              classes.forEach((cls) => {
+                const classItem = document.createElement("div");
+                classItem.classList.add("class-item");
+                classItem.textContent = cls;
+                classesContainer.appendChild(classItem);
+              });
+            } else {
+              const noClasses = document.createElement("div");
+              noClasses.classList.add("no-classes");
+              noClasses.textContent = "No hay clases";
+              classesContainer.appendChild(noClasses);
+            }
+            dayCell.appendChild(classesContainer);
+
+            // Mark current day
+            if (currentDay.toDateString() === today.toDateString()) {
+              dayCell.classList.add("current-day");
+            }
+
+            dayCell.addEventListener("click", () => {
+              // In a real application, you might pass the date or class ID
+              window.location.href = "reservar.html";
+            });
+
+            calendarGrid.appendChild(dayCell);
+            currentDay.setDate(currentDay.getDate() + 1); // Move to the next day
+          }
+        }
+
+        generateCalendar();
+      });
+    </script>
+  </body>
+</html>

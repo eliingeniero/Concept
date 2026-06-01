@@ -1,0 +1,636 @@
+/* RESET BÁSICO */
+@font-face {
+  font-family: "OT Neue Montreal Book";
+  src: url("./fonts/OTNeueMontreal-BookSqueezed.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OT Neue Montreal Medium";
+  src: url("./fonts/OTNeueMontreal-MediumSemiSqueezed.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OT Neue Montreal SemiBold";
+  src: url("./fonts/OTNeueMontreal-SemiBoldExtraSqueezed.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  line-height: normal;
+  background-color: var(--Primary-01-900); /* El fondo base de toda la web ahora es crema */
+  font-family: var(--font-catalogue-mainFont), sans-serif;
+}
+
+/* VARIABLES GLOBALES (Design System) */
+:root {
+  /* Figma Variables */
+
+  /* Tipografía - Tamaños */
+  --font-size-Buttons-Links: 18px;
+  --font-size-H2: 80px;
+  --font-size-H3: 48px;
+  --font-size-H4: 24px;
+  --font-size-H5: 16px;
+  --font-size-H6: 16px;
+  --font-size-small: 14px; /* Added for calendar day details */
+  --font-size-xsmall: 12px; /* Added for calendar class items */
+  --font-size-H7: 12px;
+  --font-size-p: 16px;
+
+  /* Dimensiones de Contenedores */
+  --Frame-Size-fullHeight: 1038px;
+  --Frame-Size-fullWidth: 1728px;
+  --Frame-Size-halfHeight: 519px;
+
+  /* Espaciado y Gaps */
+  --gap-24: 24px;
+  --gap-8: 8px;
+
+  /* Paleta de Colores */
+  --Primary-01-900: #f6ebd2;
+  --Primary-02-100: rgba(0, 0, 0, 0.1);
+  --Primary-02-300: rgba(0, 0, 0, 0.25);
+  --Primary-02-900: #000;
+  --Primary-03-300: rgba(251, 247, 238, 0.25);
+
+  /* Tipografía - Familia */
+  --font-catalogue-mainFont: "OT Neue Montreal Book";
+  --font-catalogue-medium: "OT Neue Montreal Medium";
+  --font-catalogue-bold: "OT Neue Montreal SemiBold";
+
+  /* Variables de Compatibilidad (Legacy) - No usadas en base-pagina.html
+  --font-size-Buttons-Links1: 18px; */
+  /* --font-size-H21: 80px; */
+  /* --font-size-H31: 48px; */
+  /* --font-size-H41: 24px; */
+  /* --font-size-H51: 16px; */
+  /* --font-size-H61: 16px; */
+  /* --font-size-H71: 12px; */
+  /* --font-size-p1: 16px; */
+  /* --Frame-Size-fullHeight1: 1038px; */
+  /* --Frame-Size-fullWidth1: 1728px; */
+  /* --Frame-Size-halfHeight1: 519px; */
+  /* --Primary-01-9001: #f6ebd2; */
+  /* --Primary-02-9001: #000; */
+  /* --font-catalogue-mainFont1: OT Neue Montreal; */
+}
+
+/* --- COMPONENTES COMPARTIDOS --- */
+
+/* Estilos base para texto dentro de botones de navegación */
+.boton {
+  position: relative;
+  letter-spacing: 0.03em;
+}
+
+/* Estilos para texto dentro de botones de navegación (variante negra) */
+.boton-negro {
+  position: relative;
+  font-size: var(--font-size-Buttons-Links);
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+/* Contenedor principal de la barra de navegación superior */
+.barra-nav-superior {
+  width: 100%;
+  margin: 0 !important;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  backdrop-filter: blur(4px);
+  background-color: var(--Primary-02-100);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 8px 24px;
+  box-sizing: border-box;
+  gap: 20px;
+  z-index: 2;
+  flex-shrink: 0;
+  font-size: var(--font-size-Buttons-Links);
+  color: var(--Primary-02-900);
+  font-family: var(--font-catalogue-mainFont);
+}
+
+/* Contenedor del logo en el nav */
+.logo-barra-nav-wrapper {
+  height: 20px;
+  width: 141px;
+  position: relative;
+}
+
+/* Imagen/Elemento del logo clickable */
+.logo-barra-nav {
+  position: absolute;
+  top: calc(50% - 8.9px);
+  left: 0;
+  width: 96.2px;
+  height: 19.9px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+/* Propiedades de visualización del logo (SVG) */
+.logo-barra-nav-positive {
+  position: absolute;
+  height: 97.99%;
+  width: 99.9%;
+  top: 1.51%;
+  right: 0.1%;
+  bottom: 0.5%;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+/* Grupo de botones en el nav */
+.barra-nav-contenedor {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+}
+
+/* Botones individuales del nav (Estándar y variantes) */
+.barra-nav-boton,
+.barra-nav-boton-negro {
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.barra-nav-boton:hover,
+.barra-nav-boton-negro:hover,
+.logo-barra-nav:hover {
+  opacity: 0.6;
+}
+
+/* Variante negra del botón de navegación */
+.barra-nav-boton-negro {
+  cursor: pointer;
+  border: 0;
+  background-color: var(--Primary-02-900);
+  color: var(--Primary-01-900);
+}
+
+/* --- DECORACIONES DE NAVEGACIÓN (Bajo el Header) --- */
+
+.cuadrados-barra-nav {
+  width: 100%;
+  position: absolute;
+  top: 100%; /* Se posiciona justo al final de la barra nav */ /* 1. Cuadrados fuera de la barra de nav */
+  left: 0;
+  margin-top: 12px; /* Espacio visual para quedar "fuera" de lo gris */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-sizing: border-box;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.cuadrado-negro {
+  height: 6px;
+  width: 6px;
+  position: relative;
+  background-color: var(--Primary-02-900);
+}
+
+.titulo-wrapper {
+  color: black;
+}
+
+.titulo {
+  font-size: large;
+}
+
+/* --- ESTRUCTURA GLOBAL Y HOME --- */
+
+.home,
+.pagecontent {
+  /* .pagecontent no se usa en base-pagina.html */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+}
+
+.home {
+  width: 100%;
+  position: relative;
+  background-color: var(--Primary-01-900);
+  overflow: hidden;
+  padding: 180px 0 0; /* Aumentamos el espacio para que el contenido (logorario) comience más abajo */
+  box-sizing: border-box;
+  isolation: isolate;
+  font-size: 14px;
+  color: #767676;
+  font-family: "Helvetica Neue";
+}
+
+/* --- SECCIÓN LOGORARIO (IDENTIDAD VISUAL) --- */
+
+.logorario-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 40px;
+  z-index: 5;
+  flex-shrink: 0;
+  text-align: left;
+  font-size: var(--font-size-H4);
+  color: var(--Primary-02-900);
+  font-family: var(--font-catalogue-mainFont);
+}
+
+.logorario-horas {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  font-family: inherit;
+  flex: none;
+}
+
+.wellness-rotado {
+  position: relative;
+  letter-spacing: 0.05em;
+  transform: rotate(90deg);
+  font-size: var(--font-size-H7); /* Usar variable para consistencia */
+}
+
+/* --- CONTENIDO BASE DE PÁGINA (SHELL) --- */
+
+.contenido-base {
+  align-self: stretch;
+  z-index: 0;
+  flex-shrink: 0;
+  font-size: var(--font-size-H2);
+  color: var(--Primary-02-900);
+  font-family: var(--font-catalogue-mainFont);
+}
+
+.bloque-contenido-base {
+  height: var(--Frame-Size-fullHeight);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 24px;
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  gap: 20px;
+  text-align: center;
+  color: var(--Primary-01-900);
+}
+
+/* --- FOOTER --- */
+
+/* Contenedor principal del footer */
+.footer {
+  width: 100%;
+  height: var(--Frame-Size-halfHeight);
+  background-color: var(--Primary-02-900);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 24px 16px;
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Estructura interna del footer */
+.footer-container,
+.footer-section {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* Layout de las columnas del footer */
+.footer-container {
+  flex: 1;
+  flex-direction: column;
+  gap: 0;
+  z-index: 0;
+}
+
+/* Sección específica de enlaces y textos legales */
+.footer-section {
+  padding: 0 24px;
+  gap: 20px;
+  text-align: left;
+  font-size: var(--font-size-H7);
+  color: var(--Primary-01-900);
+  font-family: var(--font-catalogue-mainFont);
+}
+
+/* Wrapper para detalles de contacto */
+.footer-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.footer-columna {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Botones genéricos dentro del footer */
+.footerbtn,
+.footer-link {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.footer-link:hover {
+  opacity: 0.6;
+}
+
+/* Texto informativo (Direcciones, tlf) */
+.footer-texto {
+  position: relative;
+  letter-spacing: 0.02em;
+  white-space: pre-wrap;
+}
+
+/* Texto de derechos reservados */
+.concept-cero-wellness {
+  position: relative;
+  letter-spacing: 0.02em;
+  white-space: pre-wrap;
+  text-align: right;
+}
+
+.app-section {
+  width: 100%;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.app-title {
+  font-size: var(--font-size-H3);
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.app-description {
+  font-size: var(--font-size-small); /* Tamaño de letra más pequeño para la descripción de la app */
+}
+.app-buttons {
+  display: flex;
+  width: 25%; /* Reduce el ancho al 75% */
+  margin: 0 auto; /* Centra los botones */
+  gap: 20px;
+  justify-content: center;
+}
+
+.app-buttons img {
+  max-width: 100%; /* Asegura que las imágenes no excedan el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Logo gigante del footer */
+.mainlogotype {
+  align-self: stretch;
+  height: 345px;
+  position: relative;
+}
+
+/* Imagen SVG negativa del logo */
+.mainlogotype-negative {
+  position: absolute;
+  height: 98.09%;
+  width: 99.95%;
+  top: 1.48%;
+  right: 0.03%;
+  bottom: 0.43%;
+  left: 0.02%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.cuadrados-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-sizing: border-box;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.cuadrado-fondo {
+  height: 6px;
+  width: 6px;
+  position: relative;
+  background-color: var(--Primary-01-900);
+}
+
+/* --- DISEÑO RESPONSIVO (MÓVILES) --- */
+@media (max-width: 768px) {
+  /* Reducimos el margen lateral de los cuadrados para que se acerquen a los bordes */
+  .cuadrados-barra-nav,
+  .cuadrados-footer {
+    padding: 0 20px;
+  }
+
+  /* 1. Barra de navegación: 3 filas con logo centrado y estilo PC */
+  .barra-nav-superior {
+    position: fixed !important; /* Cambiamos a fixed para que nos siga al hacer scroll */
+    top: auto;
+    flex-direction: column; /* Mantiene las 3 filas */
+    height: auto !important;
+    padding: 30px 20px;
+    gap: 20px;
+    top: 0 !important; /* Aseguramos que esté en la parte superior */
+    align-items: center;
+    background-color: var(--Primary-02-100) !important; /* Forzamos el color exacto de PC */
+    backdrop-filter: blur(4px) !important; /* Forzamos el desenfoque exacto de PC */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transición suave para el colapso */
+    z-index: 1000;
+  }
+
+  /* Estado colapsado: Solo se ve el logo y reducimos el aire vertical */
+  .barra-nav-superior.colapsada {
+    padding: 15px 20px;
+    gap: 0;
+  }
+
+  /* Ocultamos solo el contenedor de botones cuando la barra está colapsada */
+  .barra-nav-superior.colapsada .barra-nav-contenedor {
+    display: none;
+  }
+
+  /* Los cuadrados decorativos deben quedar fuera de la barra nav cuando se guarde la barra-nav */
+  .barra-nav-superior.colapsada .cuadrados-barra-nav {
+    display: flex; /* Aseguramos que se muestren */
+    position: fixed; /* Posicionamiento fijo respecto al viewport */
+    top: 72px; /* Altura de la barra colapsada (aprox. 60px) + 12px de margen */
+    margin-top: 0; /* Reseteamos el margin-top para que 'top' sea el único control */
+    z-index: 999; /* Aseguramos que estén por encima del contenido pero debajo de la nav */
+    transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Transición suave */
+    background-color: transparent; /* Aseguramos que no tengan un fondo de la nav */
+  }
+
+  .barra-nav-superior.colapsada .logo-barra-nav-wrapper {
+    height: 30px;
+  }
+
+  .logo-barra-nav-wrapper {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    order: -1; /* Mantiene el logo arriba */
+  }
+
+  .logo-barra-nav {
+    width: 180px; /* Logo con mayor presencia */
+    height: auto;
+    position: relative;
+    top: 0;
+  }
+
+  .barra-nav-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  /* Home: Ajuste de padding para que el logorario aparezca después de la nav */
+  .home {
+    padding-top: 300px !important;
+    transition: padding-top 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Sincronizado con la animación de la barra */
+  }
+
+  /* Cuando la barra se colapsa, el contenido sube para ocupar el espacio */
+  .barra-nav-superior.colapsada + .home {
+    padding-top: 120px !important; /* Espacio reducido para la barra en modo logo único */
+  }
+
+  /* 2. Logorario: Fluye normalmente después de la nav */
+  .logorario-parent {
+    position: relative;
+    top: auto;
+    margin-top: 60px; /* Espacio adicional para que el logorario esté más abajo */
+    flex-direction: row; /* Mantiene en una sola línea */
+    padding: 40px 20px;
+    gap: 20px;
+  }
+
+  /* 3. Footer: Corrección de visibilidad del logo y links */
+  .footer {
+    height: auto !important; /* Forzamos que el contenedor crezca con el contenido */
+    padding: 60px 24px 80px; /* Aumentamos el padding inferior para evitar cortes con los cuadrados */
+    overflow: visible !important; /* Aseguramos que los cuadrados decorativos no se oculten */
+    display: block;
+  }
+
+  .footer-container {
+    height: auto !important;
+  }
+
+  .footer-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .footer-columna {
+    align-items: center;
+  }
+
+  .mainlogotype {
+    height: auto !important;
+    max-height: none !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    overflow: visible !important;
+    z-index: 5;
+  }
+
+  .mainlogotype-negative {
+    position: relative !important;
+    display: block;
+    width: 100% !important; /* Ocupa el ancho total disponible */
+    height: auto;
+    max-height: none !important;
+    overflow: visible !important;
+    top: unset !important;
+    left: unset !important;
+    margin: 0 auto;
+  }
+
+  .concept-cero-wellness {
+    text-align: center;
+  }
+
+  .cuadrados-footer {
+    z-index: 6 !important; /* Aseguramos que los cuadrados estén por encima del logo */
+    bottom: 16px !important;
+  }
+
+  /* Ajuste de tamaño para los botones de la App en móvil */
+  .app-buttons {
+    width: 80% !important; /* Ampliamos el contenedor para que no se compriman */
+    gap: 12px;
+  }
+
+  .app-buttons img {
+    height: 50px !important; /* Forzamos una altura mayor para que sean fáciles de clickar */
+    width: auto;
+  }
+}

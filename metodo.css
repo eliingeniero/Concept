@@ -1,0 +1,293 @@
+/* ==========================================================================
+   1. CONTENIDO PRINCIPAL DE LA PÁGINA MÉTODO
+   ========================================================================== */
+
+.metodo-page-content {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--Primary-01-900); /* Fondo crema por defecto */
+  color: var(--Primary-02-900); /* Texto negro por defecto */
+}
+
+/* Sección de introducción (texto y contador) */
+.metodo-intro-section {
+  height: calc(50vh - 180px); /* Ajustamos la altura para que la galería empiece exactamente al 50% de la pantalla */
+  min-height: 400px; /* Mantenemos un mínimo para que el texto no se amontone en pantallas pequeñas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 48px; /* Espacio entre texto y contador */
+}
+
+.metodo-intro-text-wrapper {
+  max-width: 832px; /* Ancho máximo para el texto */
+}
+
+.metodo-intro-text {
+  font-size: var(--font-size-p);
+  line-height: 120%;
+  letter-spacing: 0.02em;
+}
+
+.metodo-spacer-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Espacio entre los elementos del contador */
+}
+
+.metodo-spacer-item {
+  margin: 0;
+  font-size: var(--font-size-H3); /* Tamaño de fuente para el contador */
+  letter-spacing: -0.03em;
+  line-height: 85%;
+  font-weight: 400;
+  font-family: var(--font-catalogue-mainFont);
+}
+
+/* ==========================================================================
+   2. GALERÍA DE CLASES (CARRUSEL HORIZONTAL)
+   ========================================================================== */
+
+.metodo-gallery-section {
+  height: 50vh; /* La galería ocupa la mitad inferior exacta de la pantalla */
+  background-color: var(--Primary-02-900); /* Fondo oscuro para la galería */
+  color: var(--Primary-01-900); /* Texto claro para la galería */
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Centra verticalmente el carrusel dentro de la sección */
+}
+
+.metodo-gallery-carousel {
+  display: flex;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Desplazamiento suave en iOS */
+  scroll-behavior: smooth; /* Desplazamiento suave para el carrusel */
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+  height: 100%; /* Asegura que el carrusel ocupe toda la altura de la sección */
+}
+
+.metodo-gallery-carousel::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en navegadores Webkit */
+}
+
+.metodo-card {
+  flex: 0 0 auto; /* No crece, no se encoge, se basa en el contenido */
+  width: var(--Frame-Size-halfHeight); /* 519px según variables */
+  height: 100%; /* Ocupa toda la altura del carrusel */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  padding: 24px;
+  border-right: 1px solid rgba(246, 235, 210, 0.1); /* Separador entre tarjetas */
+}
+
+.metodo-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.metodo-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Más claro por defecto */
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.metodo-card-details,
+.metodo-card-title,
+.metodo-card-description-wrapper,
+.metodo-card-link {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-family: var(--font-catalogue-mainFont);
+  color: var(--Primary-01-900);
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 0.4s ease;
+}
+
+.metodo-card-type-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.metodo-card-type-indicator {
+  width: 6px;
+  height: 6px;
+  background-color: var(--Primary-01-900);
+  border-radius: 50%;
+}
+
+.metodo-card-type,
+.metodo-card-info-item {
+  font-size: var(--font-size-H7);
+}
+
+.metodo-card-info {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metodo-card-title {
+  font-size: var(--font-size-H3);
+  line-height: 85%;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
+}
+
+.metodo-card-description-wrapper {
+  max-width: 80%;
+  margin-bottom: 24px;
+}
+
+.metodo-card-description {
+  font-size: var(--font-size-p);
+  line-height: 120%;
+  letter-spacing: 0.02em;
+}
+
+.metodo-card-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: var(--font-size-Buttons-Links);
+  transition: opacity 0.2s ease;
+}
+
+.metodo-card-link:hover {
+  opacity: 0.7;
+}
+
+.metodo-card-link-icon {
+  width: 16px; /* Ajusta el tamaño del icono */
+  height: 16px;
+  object-fit: contain;
+}
+
+/* --- ESTADOS INTERACTIVOS --- */
+.metodo-card:hover .metodo-card-img {
+  transform: scale(1.05);
+}
+
+.metodo-card:hover .metodo-card-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.metodo-card:hover .metodo-card-details,
+.metodo-card:hover .metodo-card-title,
+.metodo-card:hover .metodo-card-description-wrapper,
+.metodo-card:hover .metodo-card-link {
+  opacity: 1;
+}
+
+/* Estilos para móviles (pantallas de hasta 768px de ancho) */
+@media (max-width: 768px) {
+  /* SECCIÓN DE INTRODUCCIÓN */
+  .metodo-intro-section {
+    height: auto; /* Permitir que la altura se ajuste al contenido */
+    min-height: unset; /* Eliminar min-height fijo */
+    padding: 40px 20px; /* Ajustar padding */
+    gap: 30px; /* Ajustar espacio */
+  }
+
+  .metodo-intro-text {
+    font-size: var(--font-size-p); /* Asegurar tamaño de fuente legible */
+  }
+
+  .metodo-spacer-parent {
+    gap: 10px; /* Reducir espacio en el contador */
+  }
+
+  .metodo-spacer-item {
+    font-size: var(--font-size-H4); /* Ajustar tamaño del contador */
+  }
+
+  /* GALERÍA DE CLASES */
+  .metodo-gallery-section {
+    height: auto; /* Permitir que la altura se ajuste al contenido */
+    padding: 40px 20px; /* Añadir padding a la sección */
+    flex-direction: column; /* Asegurar que la sección se apile verticalmente */
+  }
+
+  .metodo-gallery-carousel {
+    flex-direction: column; /* Apilar las tarjetas verticalmente */
+    overflow-x: hidden; /* Deshabilitar scroll horizontal */
+    overflow-y: visible; /* Permitir que el contenido fluya verticalmente */
+    scroll-snap-type: none; /* Deshabilitar scroll snap */
+    height: auto; /* Altura automática */
+    width: 100%; /* Ocupar todo el ancho disponible */
+    gap: 30px; /* Espacio entre las tarjetas */
+  }
+
+  .metodo-card {
+    flex: 0 0 auto; /* Restablecer flex para que no se encoja */
+    width: 100%; /* Ocupar todo el ancho disponible */
+    max-width: 350px; /* Limitar el ancho máximo para legibilidad */
+    height: 350px; /* Altura fija para las tarjetas en móvil */
+    border-right: none; /* Eliminar borde derecho */
+    border-bottom: 0.5px solid rgba(246, 235, 210, 0.1); /* Añadir borde inferior */
+    padding: 20px; /* Ajustar padding */
+    margin: 0 auto; /* Centrar la tarjeta */
+    scroll-snap-align: none; /* Deshabilitar scroll snap */
+  }
+
+  .metodo-card:last-child {
+    border-bottom: none; /* Eliminar borde inferior de la última tarjeta */
+  }
+
+  /* Asegurar que los detalles de la tarjeta sean visibles en móvil sin hover */
+  .metodo-card-details,
+  .metodo-card-description-wrapper,
+  .metodo-card-title,
+  .metodo-card-link {
+    opacity: 1; /* Mostrar por defecto en móvil */
+    text-align: center;
+  }
+
+  .metodo-card-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurecer un poco la imagen de fondo para que el texto sea legible */
+  }
+
+  .metodo-card-title {
+    font-size: var(--font-size-H4); /* Ajustar tamaño del título de la tarjeta */
+    margin-bottom: 16px;
+  }
+
+  .metodo-card-description {
+    font-size: var(--font-size-small); /* Ajustar tamaño de la descripción */
+  }
+
+  .metodo-card-info {
+    justify-content: center; /* Centrar la información de la tarjeta */
+  }
+
+  .metodo-card-type-wrapper {
+    justify-content: center; /* Centrar el tipo de tarjeta */
+  }
+}
