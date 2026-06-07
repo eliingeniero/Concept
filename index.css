@@ -2,131 +2,39 @@
 ESTILOS ESPECÍFICOS: PÁGINA INDEX
    ========================================================================== */
 
-/* Sobrescribimos el padding global para que el contenido empiece en (0,0) */
-.home {
-  padding-top: 0 !important;
-}
-
 /* ==========================================================================
-   1. IDENTIDAD (LOGORARIO)
-   ========================================================================== */
-
-/* Lo hacemos absoluto para que no empuje la imagen del hero y se sitúe bajo la nav */
-.logorario-parent {
-  position: absolute;
-  top: 150px; /* Ajustado para que aparezca bajo la barra de navegación y sus puntos */
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  pointer-events: none; /* Permite interactuar con lo que hay detrás si fuera necesario */
-  display: flex;
-  align-items: center;
-  padding: 0 60px;
-  box-sizing: border-box;
-}
-
-.logorario-parent .logorario-horas {
-  flex: 1;
-  margin: 0;
-}
-
-.logorario-parent .logorario-horas:first-child {
-  text-align: right;
-}
-.logorario-parent .logorario-horas:last-child {
-  text-align: left;
-}
-
-/* ==========================================================================
-   2. BLOQUE HERO (BLOQUE 1)
-   ========================================================================== */
-
-/* El contenedor del Hero ahora ocupa el 100% de la pantalla */
-.bloque1 {
-  height: 100vh !important;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Alinea el contenido al principio */
-  padding: 250px 24px 0 24px !important; /* Añadido padding superior para espacio desde el logorario */
-}
-
-/* Imagen o Video de fondo: Cubre todo el contenedor */
-.sera-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* Wrapper del título: Posicionado en el centro absoluto */
-.dos-sedes-tres-modalidades-s-wrapper {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Estilo del título principal */
-.titulo-index {
-  position: relative;
-  letter-spacing: -0.03em;
-  line-height: 85%;
-  text-transform: uppercase;
-  font-size: var(--font-size-H3); /* Usamos el tamaño grande del sistema */
-  color: var(--Primary-01-900);
-}
-
-/* Bloque de texto inferior: Situado a 60px del borde */
-.creemos-en-entrenar {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 832px;
-  font-size: var(--font-size-H5);
-  letter-spacing: 0.02em;
-  line-height: 120%;
-  z-index: 3;
-  color: var(--Primary-01-900);
-  text-align: center;
-}
-
-/* ==========================================================================
-   3. GALERÍA DE SERVICIOS (DESPLAZAMIENTO HORIZONTAL)
+   1. TARJETAS DE CLASES (GALERÍA DESLIZABLE)
+   Sección que muestra las modalidades. Ahora con fondo crema para fundirse
+   con el contenido superior.
    ========================================================================== */
 
 .galeria-wrapper {
   width: 100%;
-  background-color: var(--Primary-02-900);
+  background-color: var(--color-crema); /* Cambiado de negro a crema según petición */
   overflow: hidden;
-  border-top: 1px solid rgba(246, 235, 210, 0.1);
+  border-top: 1px solid var(--negro-suave); /* Borde sutil oscuro para separar del Hero */
+  margin-top: var(--espacio-chico); /* Espacio de 8px respecto al Hero */
 }
 
 .galeria {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  /* Ocultamos la barra de scroll en navegadores modernos */
-  scrollbar-width: none;
+  width: 100%; /* Permitimos que el contenedor respete el ancho de la pantalla */
+  overflow-x: auto; /* Habilitamos el scroll horizontal */
+  gap: var(--espacio-chico);
 }
 
+/* Oculta la barra de scroll para que quede más limpio */
 .galeria::-webkit-scrollbar {
   display: none;
 }
 
 .galeria-card {
   flex: 0 0 auto;
-  width: var(--Frame-Size-halfHeight); /* 519px según variables */
-  height: var(--Frame-Size-halfHeight);
+  /* Dividimos el ancho total en 4 partes iguales restando los 3 gaps de 8px (espacio-chico).
+     Esto garantiza que el centro del segundo gap coincida exactamente con el eje central 
+     de la pantalla (50vw), alineándose con el cuadrado negro central de la nav. */
+  width: calc((100vw - (3 * var(--espacio-chico))) / 4);
+  height: var(--alto-medio);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -135,8 +43,8 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   overflow: hidden;
   scroll-snap-align: start;
   box-sizing: border-box;
-  padding: 24px;
-  border-right: 1px solid rgba(246, 235, 210, 0.1);
+  padding: var(--espacio-grande); /* 24px de aire interno */
+  border-right: 1px solid var(--negro-suave); /* Separador visual entre tarjetas */
 }
 
 .card-img {
@@ -147,120 +55,122 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Transición elegante */
 }
 
-.galeria-card:hover .card-img {
-  transform: scale(1.05);
+.card-img.hover-img {
+  opacity: 0;
+  z-index: 1;
+}
+
+.galeria-card:hover .card-img.hover-img {
+  opacity: 1;
 }
 
 .card-title {
   position: relative;
   z-index: 2;
-  font-size: var(--font-size-H3);
-  color: var(--Primary-01-900);
-  font-family: var(--font-catalogue-mainFont);
-  letter-spacing: -0.03em;
-  line-height: 85%;
-  text-transform: uppercase;
+  color: var(--color-negro); /* Texto negro para resaltar sobre el fondo crema */
   text-align: center;
-  margin: 0 0 24px 0;
+  margin: 0;
   pointer-events: none;
 }
 
 .card-btn {
-  position: relative;
+  position: absolute;
+  bottom: var(--espacio-grande);
+  left: var(--espacio-grande);
+  right: var(--espacio-grande);
+  height: var(--alto-nav); /* Usamos la altura estándar de navegación para consistencia */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
   text-decoration: none;
-  color: var(--Primary-01-900);
-  font-family: var(--font-catalogue-mainFont);
-  font-size: var(--font-size-Buttons-Links);
-  text-transform: uppercase;
-  padding: 8px 32px;
-  border: 0.5px solid var(--Primary-01-900);
-  border-radius: 2px;
-  transition: all 0.2s ease;
+  color: var(--color-crema);
+  border: 1px solid var(--color-crema);
+  border-radius: 0;
+  transition: all 0.3s ease;
+  background-color: transparent;
 }
 
-.card-btn:hover {
-  background-color: var(--Primary-01-900);
-  color: var(--Primary-02-900);
+/* Estado: Cuando el ratón entra en la tarjeta (cambio a imagen secundaria) */
+.galeria-card:hover .card-btn {
+  background-color: var(--color-crema);
+  color: var(--color-negro);
+}
+
+/* Estado: Cuando el ratón entra específicamente en el botón */
+.galeria-card .card-btn:hover {
+  background-color: var(--color-negro);
+  color: var(--color-crema);
+  border-color: var(--color-negro);
 }
 
 /* ==========================================================================
-   4. SECCIÓN FILOSOFÍA
+   2. SECCIÓN FILOSOFÍA
+   Bloque de texto central con etiquetas laterales rotadas.
    ========================================================================== */
 
 .bloque-filosofia {
   width: 100%;
-  height: var(--Frame-Size-halfHeight);
+  height: var(--alto-medio);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: var(--Primary-01-900);
-  color: var(--Primary-02-900);
-  padding: 0 60px;
+  justify-content: flex-start;
+  background-color: var(--color-crema);
+  color: var(--color-negro);
+  padding: 80px 150px; /* Padding superior de 80px y 48px laterales como pediste */
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .bloque-filosofia-inner {
-  max-width: 832px;
+  width: 100%; /* Forzamos que el contenedor use todo el ancho disponible entre los paddings */
+  max-width: 100%; /* El texto ahora se expande hasta los márgenes */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 48px; /* Espaciado entre el título y el párrafo */
   text-align: center;
 }
 
-.texto-filosofia {
-  font-size: var(--font-size-p);
-  line-height: 120%;
-  letter-spacing: 0.02em;
-}
-
 .titulo-filosofia {
-  font-size: var(--font-size-H2);
-  line-height: 85%;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
   margin: 0;
 }
 
 .filosofia-label {
   position: absolute;
-  font-size: var(--font-size-H7);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
   white-space: nowrap;
-  top: 50%;
+  top: 80px; /* Alineado con el inicio del texto (padding-top del bloque) */
   transform-origin: center;
 }
 
 .filosofia-label.izquierda {
-  left: 24px;
-  transform: translateY(-50%) rotate(-90deg);
+  left: var(--espacio-grande);
+  transform: rotate(-90deg);
 }
 
 .filosofia-label.derecha {
-  right: 24px;
-  transform: translateY(-50%) rotate(90deg);
+  right: var(--espacio-grande);
+  transform: rotate(90deg);
 }
 
 /* ==========================================================================
-   5. SECCIÓN CLUB/INSTALACIONES (CARRUSEL)
+   3. SECCIÓN CLUB E INSTALACIONES
+   Layout dividido al 50% con carrusel de imágenes y ficha técnica de salas.
    ========================================================================== */
 
 .seccion-club {
   display: flex;
   width: 100%;
-  min-height: var(--Frame-Size-fullHeight); /* Usa la altura completa definida en variables */
-  background-color: var(--Primary-01-900); /* Fondo crema */
-  color: var(--Primary-02-900); /* Texto negro */
+  height: 100vh; /* Ajustado para que ocupe exactamente el tamaño del viewport */
+  background-color: var(--color-crema); /* Fondo crema */
+  color: var(--color-negro);
   box-sizing: border-box;
-  overflow: hidden; /* Oculta el desbordamiento para el carrusel */
+  overflow: hidden;
 }
 
 .club-carrusel {
@@ -288,7 +198,7 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0 56px; /* Padding original */
+  padding: 0 0 56px;
   box-sizing: border-box;
   gap: 8px;
 }
@@ -305,10 +215,9 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 24px 0 4px; /* Padding original */
-  gap: 20px;
+  padding: 40px 0 0 0; /* Eliminamos el padding lateral del contenedor para controlarlo en los hijos */
+  gap: var(--espacio-grande);
   text-align: center;
-  font-family: var(--font-catalogue-mainFont);
 }
 
 .club-info-texto-grupo {
@@ -316,53 +225,52 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   flex-direction: column;
   align-items: center;
   gap: 32px;
+  width: 100%;
 }
 
 .club-info-titulos {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0; /* Gap original */
-  width: 100%; /* Asegura que ocupe todo el ancho */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Dividimos el espacio en 6 columnas exactas */
+  width: 100%;
 }
 
 .club-info-titulo-item {
   margin: 0;
-  font-size: var(--font-size-H4);
-  letter-spacing: 0.01em;
-  font-weight: 400;
-  font-family: inherit;
-  text-transform: uppercase;
+  white-space: nowrap;
+  justify-self: center; /* Centramos el texto dentro de su columna asignada */
+}
+
+.club-info-titulo-item:first-child {
+  grid-column: 2; /* Alineado a la segunda columna de las 6 */
+}
+
+.club-info-titulo-item:last-child {
+  grid-column: 5; /* Alineado a la quinta columna de las 6 */
 }
 
 .club-info-descripcion-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 24px;
-  font-size: var(--font-size-p);
+  width: 100%;
+  padding: 0 24px; /* Padding interior de 24px a izquierda y derecha */
+  box-sizing: border-box;
 }
 
 .club-info-descripcion {
   position: relative;
-  letter-spacing: 0.02em;
-  line-height: 115%;
+  text-transform: none; /* Cambiado a formato estándar (Mayúsculas y minúsculas) */
+  width: 100%;
 }
 
 .club-info-boton {
   text-decoration: none;
   border-radius: 2px;
   padding: 10px 14px;
-  background-color: var(--Primary-02-900);
-  color: var(--Primary-01-900);
+  background-color: var(--color-negro);
+  color: var(--color-crema);
   width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-Buttons-Links);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  text-align: center; /* Centra el texto dentro del botón */
+  text-align: center;
   transition: opacity 0.2s;
 }
 
@@ -375,83 +283,36 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   align-items: flex-start;
   justify-content: space-between;
   padding: 0 40px;
-  gap: 20px;
+  gap: var(--espacio-grande);
   width: 100%;
   max-width: 550px; /* Mantiene el ancho original como máximo para no estirar los números */
 }
 
 .club-info-contador-item {
   margin: 0;
-  font-size: var(--font-size-H3); /* Usamos H3 para consistencia con otros títulos */
-  letter-spacing: -0.03em;
-  line-height: 85%;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-family: inherit;
 }
 
 /* ==========================================================================
-   6. AJUSTES MÓVIL: VERSIÓN 32
+   4. AJUSTES MÓVIL (RESPONSIVE)
+   Reconfiguración de layouts para asegurar la lectura en pantallas pequeñas.
    ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. Creemos en entrenar: texto pequeño y pie de foto */
-  .bloque1 {
-    height: 100vh !important; /* Volvemos a ocupar todo el alto de la pantalla */
-    display: flex;
-    flex-direction: column;
-    padding-top: 80px !important; /* Más aire superior para el título */
-    position: relative;
-    overflow: hidden;
-  }
-
-  .sera-video {
-    height: 100% !important; /* Forzamos que llene el vertical */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-
-  .creemos-en-entrenar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%; /* Anulamos el límite de ancho de la versión PC */
-    transform: none; /* Quitamos el desplazamiento lateral de escritorio */
-    font-size: 11px; /* Texto más pequeñito */
-    line-height: 1.4;
-    padding: 24px 20px;
-    margin: 0;
-    text-align: left;
-    z-index: 3;
-    box-sizing: border-box;
-  }
-
-  .dos-sedes-tres-modalidades-s-wrapper {
-    order: 0; /* El título se mantiene arriba */
-    position: relative;
-    padding: 40px 20px;
-  }
-
-  /* 2. Galería de servicios: Vertical */
   .galeria-wrapper {
     overflow: visible;
   }
 
   .galeria {
-    flex-direction: column; /* Cambiamos a vertical */
-    height: auto;
-    gap: 16px;
-    padding: 20px;
+    flex-direction: row; /* Forzamos horizontal para mantener el scroll infinito */
+    padding: var(--espacio-grande);
+    scroll-snap-type: x mandatory;
   }
 
   .galeria-card {
-    width: 100%;
-    flex: 0 0 320px; /* Altura fija para que no sean gigantes */
+    width: 70vw; /* En móvil, las tarjetas son más anchas para que se vea el contenido */
+    flex: 0 0 70vw;
+    scroll-snap-align: center;
   }
 
-  /* 3. Filosofía: Etiquetas arriba y abajo */
   .bloque-filosofia {
     flex-direction: column;
     height: auto;
@@ -462,27 +323,26 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   .filosofia-label {
     position: static; /* Quitamos el absoluto */
     transform: none; /* Quitamos la rotación */
-    writing-mode: horizontal-tb; /* Texto horizontal normal */
+    writing-mode: horizontal-tb;
     text-align: center;
-    font-size: var(--font-size-H7);
+    font-size: var(--tamano-etiqueta);
     opacity: 0.5;
   }
 
   .filosofia-label.izquierda {
     order: 1;
-  } /* Arriba */
+  } /* Se posiciona arriba */
   .bloque-filosofia-inner {
     order: 2;
     width: 100%;
-  } /* Texto centro */
+  }
   .filosofia-label.derecha {
     order: 3;
-  } /* Abajo */
+  } /* Se posiciona abajo */
 
-  /* 4. Club: Ocultar carrusel, solo info lateral */
   .seccion-club {
-    flex-direction: column; /* Apilamos las columnas para móvil */
-    min-height: auto; /* Permitimos que la altura se ajuste */
+    flex-direction: column;
+    min-height: auto;
   }
 
   .club-carrusel {
@@ -492,7 +352,7 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   .club-info-lateral {
     width: 100%;
     height: auto;
-    padding: 40px 20px; /* Ajustamos el padding para móvil */
+    padding: 40px 20px;
   }
 
   .club-info-imagen {
@@ -500,38 +360,11 @@ ESTILOS ESPECÍFICOS: PÁGINA INDEX
   }
 
   .club-info-titulos {
-    flex-direction: column; /* Apilamos los títulos de sala */
+    flex-direction: column;
     gap: 10px;
   }
 
   .club-info-contador {
-    padding: 0 20px; /* Ajustamos el padding del contador */
+    padding: 0 20px;
   }
-}
-
-/* ==========================================================================
-   7. ESTILOS NO UTILIZADOS (MOVIDOS AQUÍ PARA LIMPIEZA)
-   ========================================================================== */
-
-/* Placeholder para el futuro video (comentado en HTML) */
-.esto-sera-video-wrapper {
-  margin: 0 !important;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  /* ... resto de estilos de placeholder ... */
-}
-
-/* Cuadrados decorativos de sección (comentado en HTML) */
-.miscellanea {
-  width: 100%;
-  padding: 0 60px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 20px;
-  z-index: 3;
-  flex-shrink: 0;
 }

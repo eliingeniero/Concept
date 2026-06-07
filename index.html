@@ -4,300 +4,198 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./globales.css" />
     <link rel="stylesheet" href="./index.css" />
+
+    <script src="./scripts-comunes.js"></script>
+    <title>Concept Cero - Index</title>
   </head>
   <body>
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR: Compartida en todas las páginas -->
-    <div class="barra-nav-superior">
-      <div class="logo-barra-nav-wrapper">
-        <a href="index.html" class="logo-barra-nav" id="logoBtn">
-          <img class="logo-barra-nav-positive" loading="lazy" alt="" src="./img/logo-negro.svg" />
-        </a>
-      </div>
-      <div class="barra-nav-contenedor">
-        <a href="metodo.html" class="barra-nav-boton" id="metodoBtn">
-          <div class="boton">EL MÉTODO</div>
-        </a>
-        <a href="tarifas.html" class="barra-nav-boton" id="tarifasBtn"> <div class="boton">TARIFAS</div> </a>
-
-        <a href="horarios.html" class="barra-nav-boton" id="horariosBtn"> <div class="boton">HORARIOS</div> </a>
-
-        <a href="club.html" class="barra-nav-boton" id="clubBtn">
-          <div class="boton">EL CLUB</div>
-        </a>
-        <a href="contacto.html" class="barra-nav-boton" id="contactoBtn">
-          <div class="boton">CONTACTO</div>
-        </a>
-      </div>
-      <div class="barra-nav-contenedor">
-        <a href="unete-al-club.html" class="barra-nav-boton" id="uneteBtn">
-          <div class="boton">ÚNETE AL CLUB</div>
-        </a>
-        <a href="base-pagina.html" class="barra-nav-boton-negro" id="reservarBtn">
-          <!-- Enlace a base-pagina.html a propósito -->
-          <div class="boton-negro">RESERVAR</div>
-        </a>
-      </div>
-      <!-- Puntos decorativos bajo la nav -->
-      <div class="cuadrados-barra-nav">
-        <div class="cuadrado-negro"></div>
-        <div class="cuadrado-negro"></div>
-        <div class="cuadrado-negro"></div>
-      </div>
-    </div>
-    <!-- FIN BARRA DE NAVEGACIÓN SUPERIOR -->
+    <div id="nav-superior-placeholder"></div>
 
     <div class="home">
-      <!-- BLOQUE DE IDENTIDAD: Situado entre la barra de nav y el contenido principal -->
+      <!-- SECCIÓN DE CABECERA INTERNA: El texto de ( 01 ) AM y ( 02 ) PM que ves arriba -->
       <section class="logorario-parent">
-        <h3 class="logorario-horas">( 01 ) AM</h3>
+        <h4 class="logorario-horas">( 01 ) AM</h4>
         <div class="wellness-rotado">WELLNESS CLUB</div>
-        <h3 class="logorario-horas">( 02 ) PM</h3>
+        <h4 class="logorario-horas">( 02 ) PM</h4>
       </section>
 
       <main class="contenido-base">
-        <!-- Contenido de la página web -->
+        <!-- BLOQUE 1: La primera imagen que ves al entrar (Hero) -->
         <div class="bloque-contenido-base bloque1">
-          <!-- IMAGEN/VIDEO DE FONDO: Ocupa todo el bloque1 -->
-          <img class="sera-video" alt="" src="./img/sera-video.png" />
+          <!-- La imagen de fondo del primer bloque -->
+          <img class="sera-video" alt="" src="./img_opti/img1.webp" />
 
-          <!-- TÍTULO CENTRAL -->
+          <!-- El título grande que aparece sobre la imagen -->
           <div class="dos-sedes-tres-modalidades-s-wrapper">
-            <div class="titulo-index">DOS SEDES. TRES MODALIDADES.<br />SIETE CLASES DIFERENTES.<br />BIENVENIDX A CONCEPT CERO</div>
+            <h2 class="titulo-index">TRES MODALIDADES. UN MÉTODO.<br />TODO EMPIEZA AQUÍ.<br />BIENVENIDX A CONCEPT CERO</h2>
           </div>
 
-          <!-- TEXTO INFERIOR: A 60px del borde inferior -->
-          <div class="creemos-en-entrenar">
-            CREEMOS EN ENTRENAR CON SENTIDO, ADAPTADO A CADA PERSONA Y A CADA ETAPA DE SU VIDA. EL MOVIMIENTO ES PREVENCIÓN, ALIVIO Y VITALIDAD: UNA FORMA DE CUIDAR LO QUE SOMOS HOY Y DE MANTENER EL
-            BIENESTAR EN EL TIEMPO.<br />NO BUSCAMOS RESULTADOS RÁPIDOS, SINO HÁBITOS QUE FORMEN PARTE DE LA VIDA DIARIA. AQUÍ LA TÉCNICA SE UNE A LA CERCANÍA, Y EL CUIDADO SE COMPARTE EN COMUNIDAD.
-          </div>
-          <!-- <div class="esto-sera-video-wrapper">
-            <div class="esto-sera-video">esto sera VIDEO</div>
-          </div>-->
-          <!-- Cuadrados decorativos que hay que modificar: Miscelánea de puntos visuales --
-      <div class="miscellanea">
-        <!-- altura vídeo --
-        <div class="cuadrado-negro"></div>
-        <div class="cuadrado-negro"></div>
-        <div class="cuadrado-negro"></div>
-      </div>
-
-    -->
-          <!-- Fin de primer grupo de contenido -->
+          <!-- El párrafo de texto que está al final de la primera imagen -->
+          <p class="creemos-en-entrenar">
+            Creemos en entrenar con sentido, adaptado a cada persona y a cada etapa de su vida. El movimiento es prevención, alivio y vitalidad: una forma de cuidar lo que somos hoy y de mantener el
+            bienestar en el tiempo.<br />No buscamos resultados rápidos, sino hábitos que formen parte de la vida diaria. Aquí la técnica se une a la cercanía, y el cuidado se comparte en comunidad.
+          </p>
         </div>
 
-        <!-- GALERÍA DE SERVICIOS -->
+        <!-- GALERÍA DE SERVICIOS: Las tarjetas de clases que se deslizan de lado -->
         <div class="galeria-wrapper">
           <div class="galeria">
+            <!-- Cada "section" es una tarjeta individual -->
             <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-1.png" />
-              <h2 class="card-title">ENTRENAMIENTO<br />PERSONAL</h2>
+              <img class="card-img" alt="" src="./img_opti/img6.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img7.webp" />
+              <h3 class="card-title">ENTRENAMIENTO<br />PERSONAL</h3>
               <a href="reservar.html" class="card-btn">RESERVA</a>
             </section>
             <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-2.png" />
-              <h2 class="card-title">FUNCIONAL</h2>
+              <img class="card-img" alt="" src="./img_opti/img8.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img9.webp" />
+              <h3 class="card-title">FUNCIONAL</h3>
               <a href="reservar.html" class="card-btn">RESERVA</a>
             </section>
             <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-3.png" />
-              <h2 class="card-title">PILATES REFORMER</h2>
+              <img class="card-img" alt="" src="./img_opti/img4.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img5.webp" />
+              <h3 class="card-title">PILATES REFORMER</h3>
               <a href="reservar.html" class="card-btn">RESERVA</a>
             </section>
             <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-4.png" />
-              <h2 class="card-title">BARRE</h2>
+              <img class="card-img" alt="" src="./img_opti/img2.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img3.webp" />
+              <h3 class="card-title">BARRE</h3>
               <a href="reservar.html" class="card-btn">RESERVA</a>
             </section>
-            <!-- Duplicamos las tarjetas para permitir scroll horizontal -->
+            <!-- Repetimos las tarjetas para que parezca que hay más contenido al deslizar -->
             <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-1.png" />
-              <h2 class="card-title">ENTRENAMIENTO<br />PERSONAL</h2>
-              <a href="reservar.html" class="card-btn">RESERVA</a>
-            </section>
-            <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-2.png" />
-              <h2 class="card-title">FUNCIONAL</h2>
+              <img class="card-img" alt="" src="./img_opti/img6.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img7.webp" />
+              <h3 class="card-title">ENTRENAMIENTO<br />PERSONAL</h3>
               <a href="reservar.html" class="card-btn">RESERVA</a>
             </section>
             <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-3.png" />
-              <h2 class="card-title">PILATES REFORMER</h2>
+              <img class="card-img" alt="" src="./img_opti/img8.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img9.webp" />
+              <h3 class="card-title">FUNCIONAL</h3>
               <a href="reservar.html" class="card-btn">RESERVA</a>
             </section>
-
             <section class="galeria-card">
-              <img class="card-img" alt="" src="./img/index-galeria-4.png" />
-              <h2 class="card-title">BARRE</h2>
+              <img class="card-img" alt="" src="./img_opti/img4.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img5.webp" />
+              <h3 class="card-title">PILATES REFORMER</h3>
+              <a href="reservar.html" class="card-btn">RESERVA</a>
+            </section>
+            <section class="galeria-card">
+              <img class="card-img" alt="" src="./img_opti/img2.webp" />
+              <img class="card-img hover-img" alt="" src="./img_opti/img3.webp" />
+              <h3 class="card-title">BARRE</h3>
               <a href="reservar.html" class="card-btn">RESERVA</a>
             </section>
           </div>
         </div>
-        <!-- SECCIÓN FILOSOFÍA -->
+        <!-- SECCIÓN FILOSOFÍA: El bloque con el texto sobre Concept Cero -->
         <div class="bloque-filosofia">
           <div class="bloque-filosofia-inner">
-            <div class="texto-filosofia">
-              ACOMPAÑAMOS CADA ENTRENAMIENTO PARA QUE SEA UN CAMINO HACIA LA SALUD, EL EQUILIBRIO Y LA MOTIVACIÓN COMPARTIDA. CREEMOS QUE UN ESTUDIO DE WELLNESS ES MUCHO MÁS QUE UN LUGAR PARA
-              ENTRENAR: ES UN ESPACIO DONDE CUIDAMOS DE CADA PERSONA Y LE AYUDAMOS A SENTIRSE MEJOR. QUEREMOS QUE CADA EJERCICIO TENGA UN SENTIDO CLARO, QUE ALIVIE MOLESTIAS, QUE FORTALEZCA EL CUERPO
-              Y QUE TRANSMITA LA ENERGÍA DE ENTRENAR EN COMUNIDAD. DISEÑAMOS CADA PROGRAMA PARA QUE LOS RESULTADOS SEAN REALES Y SOSTENIBLES EN EL TIEMPO.
-            </div>
+            <p class="texto-filosofia">
+              Acompañamos cada entrenamiento para que sea un camino hacia la salud, el equilibrio y la motivación compartida. Creemos que un estudio de wellness es mucho más que un lugar para
+              entrenar: es un espacio donde cuidamos de cada persona y le ayudamos a sentirse mejor. Queremos que cada ejercicio tenga un sentido claro, que alivie molestias, que fortalezca el cuerpo
+              y que transmita la energía de entrenar en comunidad. Diseñamos cada programa para que los resultados sean reales y sostenibles en el tiempo.
+            </p>
             <h2 class="titulo-filosofia">EMPIEZA DE CERO,<br />ENTRENA DIFERENTE</h2>
           </div>
-          <div class="filosofia-label izquierda">NUESTRA FILOSOFÍA</div>
-          <div class="filosofia-label derecha">NUESTRA FILOSOFÍA</div>
+          <!-- Estos son los textos que aparecen rotados a los lados en vertical -->
+          <span class="filosofia-label izquierda h6">NUESTRA FILOSOFÍA</span>
+          <span class="filosofia-label derecha h6">NUESTRA FILOSOFÍA</span>
         </div>
-        <!-- SECCIÓN CLUB/INSTALACIONES: Fotos de las salas y descripción de espacios -->
+        <!-- SECCIÓN CLUB: Las fotos de las salas y el texto de descripción -->
         <div class="seccion-club">
           <div class="club-carrusel">
-            <!-- Galería de imágenes de las instalaciones -->
-            <!-- deben desplazarse las imágenes lateralmente hacia la izquierda automáticamente-->
-            <img class="carrusel-imagen" loading="lazy" alt="Instalación 1" src="./img/carrusel-1.png" />
-            <img class="carrusel-imagen" alt="Instalación 2" src="./img/carrusel-2.png" />
-            <img class="carrusel-imagen" loading="lazy" alt="Instalación 3" src="./img/carrusel-3.png" />
-            <img class="carrusel-imagen" loading="lazy" alt="Instalación 4" src="./img/carrusel-4.png" />
-            <img class="carrusel-imagen" loading="lazy" alt="Instalación 5" src="./img/carrusel-5.png" />
-            <img class="carrusel-imagen" loading="lazy" alt="Instalación 6" src="./img/carrusel-6.png" />
-            <img class="carrusel-imagen" loading="lazy" alt="Instalación 7" src="./img/carrusel-7.png" />
+            <!-- Aquí van las fotos que se mueven solas a la izquierda -->
+            <img class="carrusel-imagen" loading="lazy" alt="Instalación 1" src="./img_opti/img18.webp" />
+            <img class="carrusel-imagen" alt="Instalación 2" src="./img_opti/img19.webp" />
+            <img class="carrusel-imagen" loading="lazy" alt="Instalación 3" src="./img_opti/img20.webp" />
+            <img class="carrusel-imagen" loading="lazy" alt="Instalación 4" src="./img_opti/img21.webp" />
+            <img class="carrusel-imagen" loading="lazy" alt="Instalación 5" src="./img_opti/img21.webp" />
           </div>
           <div class="club-info-lateral">
-            <img class="club-info-imagen" alt="Imagen lateral del club" src="./img/lado-carrusel.png" />
+            <img class="club-info-imagen" alt="Imagen lateral del club" src="./img_opti/img11.webp" />
+            <!-- Foto de la derecha -->
 
             <div class="club-info-contenido">
               <section class="club-info-texto-grupo">
                 <div class="club-info-titulos">
-                  <h3 class="club-info-titulo-item">( 01 ) SALA FUNCIONAL</h3>
-                  <h3 class="club-info-titulo-item">( 02 ) SALA PILATES</h3>
+                  <h4 class="club-info-titulo-item">( 01 ) SALA FUNCIONAL</h4>
+                  <h4 class="club-info-titulo-item">( 02 ) SALA PILATES</h4>
                 </div>
                 <div class="club-info-descripcion-wrapper">
-                  <div class="club-info-descripcion">
-                    NUESTRO WELLNESS CLUB OFRECE UN AMBIENTE MODERNO Y ACOGEDOR, CON ESPACIOS AMPLIOS Y BIEN ILUMINADOS QUE INVITAN AL ESFUERZO Y LA CONCENTRACIÓN. OFRECEMOS UNA ATENCIÓN PERSONALIZADA
-                    A CADA CLIENTE PARA QUE CUMPLA SUS OBJETIVOS.<br />CREEMOS QUE LA ESTÉTICA TAMBIÉN INSPIRA. NUESTRO ESPACIO ESTÁ DISEÑADO PARA TRANSMITIR CALMA Y CONCENTRACIÓN, REFLEJANDO UN
-                    WELLNESS CONTEMPORÁNEO QUE INVITA A ENTRENAR CON PLACER.
-                  </div>
+                  <p class="club-info-descripcion">
+                    Nuestro wellness club ofrece un ambiente moderno y acogedor, con espacios amplios y bien iluminados que invitan al esfuerzo y la concentración. Ofrecemos una atención personalizada
+                    a cada cliente para que cumpla sus objetivos.<br />Creemos que la estética también inspira. Nuestro espacio está diseñado para transmitir calma y concentración, reflejando un
+                    wellness contemporáneo que invita a entrenar con placer.
+                  </p>
                 </div>
 
-                <!-- Enlace a la página de club -->
+                <!-- Botón para ir a la página detallada del Club -->
                 <a href="club.html" class="club-info-boton">DESCUBRE EL CLUB</a>
               </section>
 
-              <!-- Contador decorativo / Horario -->
+              <!-- Los paréntesis con ceros que parecen un reloj/contador -->
               <div class="club-info-contador">
-                <h2 class="club-info-contador-item">(</h2>
-                <h2 class="club-info-contador-item">00</h2>
-                <h2 class="club-info-contador-item">:</h2>
-                <h2 class="club-info-contador-item">00</h2>
-                <h2 class="club-info-contador-item">:</h2>
-                <h2 class="club-info-contador-item">00</h2>
-                <h2 class="club-info-contador-item">)</h2>
+                <h3 class="club-info-contador-item">(</h3>
+                <h3 class="club-info-contador-item">00</h3>
+                <h3 class="club-info-contador-item">:</h3>
+                <h3 class="club-info-contador-item">00</h3>
+                <h3 class="club-info-contador-item">:</h3>
+                <h3 class="club-info-contador-item">00</h3>
+                <h3 class="club-info-contador-item">)</h3>
               </div>
             </div>
           </div>
         </div>
       </main>
-      <!-- FOOTER: Información de contacto, horarios y enlaces legales -->
-      <div class="footer">
-        <div class="footer-container">
-          <section class="footer-section">
-            <div class="footer-wrapper">
-              <!-- COLUMNA 1 -->
-              <div class="footer-columna">
-                <a href="https://maps.app.goo.gl/vLpYwZ1" target="_blank" class="footer-link">
-                  <div class="footer-texto">CELSO EMILIO FERREIRO , 41 32003 OURENSE</div>
-                </a>
-                <a href="tel:+34988123456" class="footer-link">
-                  <div class="footer-texto">( +34 ) 988 123 456</div>
-                </a>
-                <a href="mailto:info@conceptcero-wellnessclub.com" class="footer-link">
-                  <div class="footer-texto">INFO@CONCEPTCERO-WELLNESSCLUB.COM</div>
-                </a>
-              </div>
-
-              <!-- COLUMNA 2 -->
-              <div class="footer-columna">
-                <div class="footerbtn">
-                  <div class="footer-texto">LUNES A VIERNES DE 7.00H A 22.00H</div>
-                </div>
-                <div class="footerbtn">
-                  <div class="footer-texto">SÁBADO Y DOMINGO DE 9.00H A 14.00H</div>
-                </div>
-              </div>
-
-              <!-- COLUMNA 3 -->
-              <div class="footer-columna">
-                <a href="https://www.instagram.com/concept" target="_blank" class="footer-link">
-                  <div class="footer-texto">INSTAGRAM</div>
-                </a>
-                <a href="https://www.tiktok.com/@concept" target="_blank" class="footer-link">
-                  <div class="footer-texto">TIKTOK</div>
-                </a>
-              </div>
-
-              <!-- COLUMNA 4 -->
-              <div class="footer-columna">
-                <a href="faqs.html" class="footer-link">
-                  <div class="footer-texto">FAQS</div>
-                </a>
-                <a href="cookies.html" class="footer-link">
-                  <div class="footer-texto">POLÍTICA DE COOKIES</div>
-                </a>
-                <a href="privacidad.html" class="footer-link">
-                  <div class="footer-texto">POLÍTICA DE PRIVACIDAD</div>
-                </a>
-                <a href="terminos.html" class="footer-link">
-                  <div class="footer-texto">TÉRMINOS Y CONDICIONES</div>
-                </a>
-              </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="concept-cero-wellness">CONCEPT CERO WELLNESS CLUB @ALL RIGHTS RESERVED</div>
-          </section>
-          <div class="mainlogotype">
-            <img class="mainlogotype-negative" loading="lazy" alt="" src="./img/logo-crema.svg" />
-          </div>
-          <div class="cuadrados-footer">
-            <div class="cuadrado-fondo"></div>
-            <div class="cuadrado-fondo"></div>
-            <div class="cuadrado-fondo"></div>
-          </div>
-        </div>
-      </div>
+      <div id="footer-placeholder"></div>
     </div>
 
     <script>
+      // Lógica para que las fotos del Club se muevan solas como un carrusel
       document.addEventListener("DOMContentLoaded", () => {
-        const nav = document.querySelector(".barra-nav-superior");
-        const logoBtn = document.getElementById("logoBtn");
+        // 1. Galería: Scroll Infinito Manual
+        const galeria = document.querySelector(".galeria");
+        if (galeria) {
+          // Obtener el valor del scroll inicial desde la variable CSS
+          const initialScrollPx = getComputedStyle(document.documentElement).getPropertyValue("--galeria-initial-scroll");
+          const initialScrollValue = parseFloat(initialScrollPx); // Convertir '4px' a 4
 
-        // Función para manejar el colapso según el scroll
-        window.addEventListener("scroll", () => {
-          if (window.innerWidth <= 768) {
-            if (window.scrollY > 20) {
-              nav.classList.add("colapsada");
-            } else {
-              nav.classList.remove("colapsada");
+          if (!isNaN(initialScrollValue)) {
+            galeria.scrollLeft = initialScrollValue;
+          }
+          galeria.addEventListener("scroll", () => {
+            const totalWidth = galeria.scrollWidth;
+            const halfWidth = totalWidth / 2;
+
+            // Si llegamos al final del primer set de fotos, saltamos al inicio
+            if (galeria.scrollLeft >= halfWidth) {
+              galeria.scrollLeft -= halfWidth;
+            } else if (galeria.scrollLeft <= 0) {
+              galeria.scrollLeft += halfWidth;
             }
-          }
-        });
+          });
 
-        // Expandir al clickar el logo si la barra está colapsada
-        logoBtn.addEventListener("click", (e) => {
-          if (window.innerWidth <= 768 && nav.classList.contains("colapsada")) {
-            e.preventDefault();
-            nav.classList.remove("colapsada");
-          }
-        });
-      });
-    </script>
-    <script>
-      // Script para el desplazamiento automático del carrusel de la sección "Club"
-      document.addEventListener("DOMContentLoaded", () => {
+          // Permitir scroll horizontal con la rueda del ratón en PC
+          galeria.addEventListener("wheel", (evt) => {
+            if (evt.deltaY !== 0) {
+              evt.preventDefault();
+              galeria.scrollLeft += evt.deltaY;
+            }
+          });
+        }
+
         const clubCarrusel = document.querySelector(".club-carrusel");
         if (clubCarrusel) {
           const carruselImages = clubCarrusel.querySelectorAll(".carrusel-imagen");
           if (carruselImages.length > 0) {
-            // Clonar las primeras imágenes para un bucle infinito más suave
+            // Copiamos las fotos al final para que cuando termine parezca que sigue dando vueltas
             carruselImages.forEach((img) => {
               clubCarrusel.appendChild(img.cloneNode(true));
             });
@@ -307,12 +205,12 @@
 
             setInterval(() => {
               scrollPosition += imageWidth;
-              // Si llegamos al final de las imágenes originales (antes de los clones), reseteamos la posición
+              // Si llegamos al final de las fotos de verdad, saltamos al principio sin que se note
               if (scrollPosition >= imageWidth * carruselImages.length) {
                 scrollPosition = 0;
               }
               clubCarrusel.scrollTo({ left: scrollPosition, behavior: "smooth" });
-            }, 3000); // Cambia de imagen cada 3 segundos
+            }, 3000); // Esto hace que cambie cada 3 segundos
           }
         }
       });
