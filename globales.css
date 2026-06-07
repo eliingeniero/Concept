@@ -1,0 +1,607 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN DE TIPOGRAFÍAS Y DISEÑO SISTEMÁTICO
+   Definición de fuentes externas, variables globales (Design Tokens) 
+   y reseteo de estilos base para mantener la consistencia en toda la web.
+   ========================================================================== */
+
+* {
+  /* Asegura que el padding y el border no sumen ancho extra a los elementos */
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "OT Neue Montreal Book";
+  src: url("./fonts/OTNeueMontreal-BookSqueezed.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OT Neue Montreal Medium";
+  src: url("./fonts/OTNeueMontreal-MediumSemiSqueezed.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OT Neue Montreal SemiBold";
+  src: url("./fonts/OTNeueMontreal-SemiBoldExtraSqueezed.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0; /* Elimina el margen por defecto del navegador */
+  line-height: normal; /* Mantiene un espaciado de línea estándar */
+  background-color: var(--color-crema); /* Fondo base de la identidad visual */
+  font-family: var(--fuente-principal), sans-serif; /* Fuente principal por defecto */
+}
+
+:root {
+  /* DESIGN TOKENS: Centralizamos todos los valores para poder cambiarlos en un solo sitio */
+
+  /* Escala Tipográfica - Basada en el diseño de Figma */
+  --tamano-h1: 120px; /* Títulos de impacto (Hero) */
+  --tamano-h2: 80px;
+  --tamano-h3: 48px;
+  --tamano-h4: 24px; /* Usado en AM/PM y Wellness Club */
+  --tamano-h5: 16px;
+  --tamano-h6: 16px;
+  --tamano-h7: 12px;
+  --tamano-parrafo: 16px;
+  --tamano-botones: 18px; /* Tamaño optimizado para interactividad */
+  --tamano-links: 18px;
+
+  /* Dimensiones de Estructura */
+  --alto-nav: 54px; /* Altura de la barra de navegación superior */
+  --alto-pantalla: 1038px; /* Altura total de la mayoría de secciones */
+  --ancho-diseno: 1728px; /* Ancho de referencia de escritorio */
+  --alto-medio: 519px; /* Usado en secciones de media altura como Filosofía */
+
+  /* Sistema de Espaciado (Gaps) */
+  --espacio-grande: 24px;
+  --espacio-chico: 8px;
+  --galeria-initial-scroll: 7px; /* Variable para el scroll inicial de la galería */
+
+  /* Paleta de Colores de Marca */
+  --color-crema: #f6ebd2;
+  --negro-suave: rgba(0, 0, 0, 0.1); /* Usado para el desenfoque del Nav */
+  --negro-medio: rgba(0, 0, 0, 0.25); /* Transparencias decorativas */
+  --color-negro: #000;
+  --crema-transparente: rgba(251, 247, 238, 0.25); /* Overlay para imágenes */
+
+  /* Alias de fuentes para facilitar la escritura */
+  --fuente-principal: "OT Neue Montreal Book";
+  --fuente-media: "OT Neue Montreal Medium";
+  --fuente-negrita: "OT Neue Montreal SemiBold";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+.h7,
+button {
+  margin: 0; /* Resetea márgenes para control total desde el CSS */
+  padding: 0;
+}
+
+/* ESTILOS DE TÍTULOS: Usamos clamp() para que el tamaño sea fluido entre móvil y PC */
+
+h1 {
+  font-family: var(--fuente-principal);
+  font-size: clamp(60px, 8vw, var(--tamano-h1));
+  line-height: 0.85; /* Ajuste para que las letras grandes no tengan demasiado aire vertical */
+  letter-spacing: -0.03em; /* Kerning más cerrado para un look editorial */
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--fuente-principal);
+  font-size: clamp(40px, 6vw, var(--tamano-h2));
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: var(--fuente-principal);
+  font-size: clamp(32px, 4vw, var(--tamano-h3));
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: var(--fuente-negrita);
+  font-size: clamp(20px, 3vw, var(--tamano-h4)); /* Tamaño AM/PM */
+  line-height: 1.2; /* Interlineado más generoso para subtítulos */
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-family: var(--fuente-media);
+  font-size: clamp(14px, 2vw, var(--tamano-h5)); /* Etiquetas secundarias */
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-family: var(--fuente-negrita);
+  font-size: clamp(14px, 2vw, var(--tamano-h6));
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* .h7 es una clase de utilidad para textos muy pequeños como "NUESTRA FILOSOFÍA" */
+h7,
+.h7,
+.footer-texto,
+.concept-cero-wellness {
+  font-family: var(--fuente-media);
+  font-size: clamp(10px, 1.5vw, var(--tamano-h7));
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: var(--fuente-media);
+  font-size: clamp(14px, 1.8vw, var(--tamano-parrafo));
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: none; /* Mantiene la legibilidad permitiendo minúsculas */
+}
+
+a {
+  font-family: var(--fuente-media);
+  font-size: clamp(16px, 2vw, var(--tamano-links));
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Botones y tarjetas comparten estilo base de interactividad */
+button,
+.boton,
+.boton-negro,
+.card-btn {
+  font-family: var(--fuente-negrita);
+  font-size: clamp(16px, 2vw, var(--tamano-botones));
+  line-height: 1.2;
+  letter-spacing: 0.03em; /* Espaciado mayor para botones táctiles */
+  text-transform: uppercase;
+  border: none; /* Limpieza de estilos por defecto del navegador */
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   2. BARRA-NAV-SUPERIOR (El menú de arriba que siempre se queda pegado mientras navegas)
+   Estructura de 3 columnas para centrado absoluto y elementos decorativos.
+   ========================================================================== */
+
+.barra-nav-superior {
+  width: 100%;
+  position: fixed; /* Mantiene el menú pegado arriba durante el scroll */
+  top: 0;
+  left: 0;
+  background-color: transparent; /* Pasamos el fondo a un pseudo-elemento */
+  backdrop-filter: none; /* Quitamos el blur de aquí para no atrapar elementos fixed */
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: var(--alto-nav); /* Altura controlada centralmente */
+  box-sizing: border-box;
+  z-index: 1000; /* Siempre por encima de todo el contenido */
+}
+
+/* Fondo y desenfoque de la nav: Lo movemos aquí para que no interfiera con los cuadrados fixed */
+.barra-nav-superior::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background-color: var(--negro-suave);
+  z-index: -1;
+}
+
+/* SISTEMA DE 3 COLUMNAS: Reparte el ancho en partes iguales (33.3% cada una)
+   esto garantiza que la columna del centro esté en el 50% exacto de la pantalla. */
+.nav-columna-izq,
+.nav-columna-cen,
+.nav-columna-der {
+  flex: 1 1 0px; /* Se expanden equitativamente */
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-columna-izq {
+  justify-content: flex-start; /* Empuja el logo a la izquierda */
+}
+
+.nav-columna-cen {
+  justify-content: center; /* Clava el menú/cuadrado en el centro absoluto */
+  gap: 1px;
+}
+
+.nav-columna-der {
+  justify-content: flex-end; /* Empuja botones a la derecha */
+  gap: 1px;
+}
+
+.logo-barra-nav {
+  height: 50%; /* El logo escala según el alto del Nav */
+  width: auto;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.logo-barra-nav-positive {
+  height: 100%;
+  width: auto;
+}
+
+/* --- PUNTITOS DECORATIVOS --- 
+   Están fuera del flujo de la barra para que parezcan "colgar" de ella. */
+
+.cuadrados-barra-nav {
+  width: 100%;
+  position: absolute; /* Se posiciona relativo a .barra-nav-superior */
+  top: 100%;
+  left: 0;
+  margin-top: 12px; /* Espacio de separación tras la barra */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px; /* Sincronizado con el margen de 24px */
+  box-sizing: border-box;
+  z-index: 4;
+  pointer-events: none; /* No interfieren con el click del usuario */
+}
+
+/* ==========================================================================
+   5. DECORACIÓN GLOBAL: CUADRADOS FIJOS INFERIORES
+   ========================================================================== */
+
+.cuadrados-nav-inferior {
+  width: 100%;
+  position: fixed; /* Se posiciona respecto a la ventana del navegador */
+  bottom: 24px; /* A 24px del borde inferior según solicitado */
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px; /* Sincronizado con el margen de los cuadrados de arriba (24px) */
+  box-sizing: border-box;
+  z-index: 1001; /* Un punto por encima para asegurar visibilidad */
+  pointer-events: none;
+}
+
+.cuadrado-negro {
+  height: 6px; /* Medida fija de los puntos decorativos */
+  width: 6px;
+  background-color: var(--color-negro);
+}
+
+.barra-nav-boton,
+.barra-nav-boton-negro {
+  border-radius: 2px; /* Esquinas apenas redondeadas según el look OT Montreal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s; /* Feedback suave al pasar el ratón */
+}
+
+.barra-nav-boton:hover,
+.barra-nav-boton-negro:hover,
+.logo-barra-nav:hover {
+  opacity: 0.6; /* Efecto de hover uniforme para toda la nav */
+}
+
+.barra-nav-boton-negro {
+  cursor: pointer;
+  border: 0;
+  background-color: var(--color-negro); /* Botón de contraste (Reservar) */
+  color: var(--color-crema);
+}
+
+.barra-nav-boton.active {
+  background-color: var(--color-negro); /* Indica en qué sección está el usuario */
+  color: var(--color-crema);
+}
+
+/* ==========================================================================
+   3. FOOTER (El final de la página con los datos de contacto y el logo grande)
+   Configuración del pie de página y sus elementos decorativos.
+   ========================================================================== */
+
+.footer {
+  width: 100%;
+  min-height: var(--alto-medio); /* Garantiza espacio para el logo gigante */
+  background-color: var(--color-negro);
+  color: var(--color-crema);
+  display: flex; /* Usamos flex para apilar los bloques internos verticalmente */
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 80px 24px; /* Sincronizado con el margen de 24px */
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate; /* Crea un nuevo contexto de capas para que el logo no tape el texto */
+}
+
+.footer-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-section {
+  width: 100%;
+  display: flex; /* Distribuye las columnas de links a los lados */
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.footer-wrapper {
+  display: flex; /* Agrupa las columnas de dirección, contacto, etc. */
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.footer-columna {
+  display: flex; /* Organiza cada conjunto de links verticalmente */
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+}
+
+/* PUNTOS CREMA DEL FOOTER: Espejo de los puntos negros de la Nav */
+.cuadrados-footer {
+  width: 100%;
+  position: absolute; /* Anclado al fondo del footer */
+  bottom: 16px;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.cuadrado-fondo {
+  height: 6px;
+  width: 6px;
+  background-color: var(--color-crema);
+}
+
+.mainlogotype {
+  width: 100%;
+  margin-top: 40px; /* Separación del contenido superior del footer */
+}
+
+.mainlogotype-negative {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   4. BLOQUE-BASE (El esqueleto principal, los AM/PM y la imagen de portada gigante)
+   Shell de la página, cabecera AM/PM y bloque Hero de impacto (100vh).
+   ========================================================================== */
+
+.home {
+  width: 100%;
+  position: relative; /* Contenedor padre de todos los absolutos como el logorario */
+  background-color: var(--color-crema);
+  overflow: hidden;
+  padding: 180px 0 0; /* Espacio para que el contenido empiece debajo del Nav y el logorario */
+  box-sizing: border-box;
+  isolation: isolate;
+  color: var(--color-negro);
+}
+
+/* --- SECCIÓN LOGORARIO (EL PILAR CENTRAL) --- 
+   Aquí es donde se crea la forma _ I _ perfectamente centrada. */
+
+.logorario-parent {
+  position: absolute; /* Flota sobre el Hero */
+  top: 180px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none; /* No interfiere con el scroll o clicks en la imagen */
+  display: grid;
+  /* Grid de 12 columnas: Crucial para alinear con el resto de la web */
+  grid-template-columns: repeat(12, 1fr);
+  /* baseline: asegura que el texto AM/PM y el pilar central pisen la misma línea */
+  align-items: baseline;
+  box-sizing: border-box;
+  color: var(--color-crema); /* Color unificado */
+}
+
+.logorario-horas {
+  /* Forzamos estilos de H4 */
+  font-family: var(--fuente-negrita);
+  font-size: clamp(20px, 3vw, var(--tamano-h4));
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0; /* Elimina desplazamientos por defecto */
+  text-align: center;
+}
+
+.logorario-parent .logorario-horas:first-child {
+  grid-column: 5; /* Centrado en la quinta columna */
+}
+
+.logorario-parent .logorario-horas:last-child {
+  grid-column: 8; /* Centrado en la octava columna */
+}
+
+/* EL PILAR VERTICAL (WELLNESS CLUB):
+   Lógica geométrica: El contenedor es un punto sin ancho ni alto (0x0).
+   Al estar en las columnas 6/7 y usar justify-self: center, ese punto es el centro de la pantalla.
+   Al rotar el texto sobre ese punto central (transform-origin: center), el grosor de la letra
+   se reparte 50/50, alineándose con el eje vertical del cuadrado negro de la nav. */
+.wellness-rotado {
+  grid-column: 6 / 8;
+  justify-self: center;
+  font-family: var(--fuente-negrita);
+  font-size: clamp(20px, 3vw, var(--tamano-h4));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap; /* Evita que el texto vertical se rompa en líneas */
+  width: 0; /* Punto sin ancho para centrado absoluto */
+  height: 0; /* Punto sin alto para que no baje de la línea baseline */
+  transform: rotate(-90deg); /* Rota el texto hacia arriba */
+  transform-origin: center; /* Pivote en el centro del eje X/Y para alineación total */
+  text-align: right; /* Empuja el texto desde el centro hacia arriba */
+  display: block;
+  line-height: 0; /* Elimina el interlineado que podría "empujar" el texto bajo el suelo */
+}
+
+/* --- CONTENIDO BASE Y BLOQUES GENÉRICOS --- */
+
+.contenido-base {
+  align-self: stretch;
+  z-index: 0;
+}
+
+.bloque-contenido-base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 24px;
+  box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  gap: 20px;
+  text-align: center;
+}
+
+/* BLOQUE HERO (Imagen o video inicial) 
+   Diseñado para cubrir el 100% de la ventana del usuario al cargar la web. */
+.bloque1 {
+  height: 100vh !important;
+  justify-content: flex-start;
+  padding: 250px 24px 0 24px !important;
+  /* El margin negativo compensa el padding de la clase .home para que la imagen toque el techo */
+  margin-top: -180px;
+}
+
+.sera-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garantiza que la imagen llene el espacio sin deformarse */
+  z-index: 0;
+}
+
+.dos-sedes-tres-modalidades-s-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.titulo-index {
+  color: var(--color-crema);
+}
+
+.creemos-en-entrenar {
+  position: absolute;
+  bottom: 24px; /* Bajamos el texto a la base de la imagen con 24px de margen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px); /* Margen de 24px a cada lado (total 48px) */
+  z-index: 3;
+  color: var(--color-crema);
+}
+
+/* ==========================================================================
+   5. BLOQUE-APP (La zona para que la gente se baje la App en su móvil)
+   Sección de descarga y promoción de la aplicación.
+   ========================================================================== */
+
+.app-section {
+  width: 100%;
+  padding: 100px 24px;
+  text-align: center;
+  background-color: var(--color-crema);
+}
+
+.app-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* Centra los iconos de iOS/Android */
+  margin-top: 32px; /* Espacio bajo el título de la sección App */
+}
+
+.app-buttons img {
+  height: 45px;
+  width: auto;
+  transition: opacity 0.2s;
+}
+
+.app-buttons a:hover {
+  opacity: 0.7;
+}
+
+/* ========================================================================== 
+   6. RESPONSIVE DESIGN (MÓVIL)
+   Reconfiguración de layouts para pantallas pequeñas (768px o menos).
+   ========================================================================== */
+@media (max-width: 768px) {
+  .logorario-parent {
+    position: relative; /* Pasa de flotar a ocupar su propio espacio vertical */
+    top: auto;
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  .bloque1 {
+    height: auto !important; /* En móvil permitimos que crezca según el contenido */
+    min-height: 100vh;
+    padding-top: 120px !important;
+  }
+
+  .creemos-en-entrenar {
+    position: relative; /* Deja de flotar sobre el fondo para leerse mejor */
+    bottom: auto;
+    left: auto;
+    transform: none; /* Elimina el centrado absoluto de escritorio */
+    width: 100%;
+    padding: 40px 0;
+  }
+}

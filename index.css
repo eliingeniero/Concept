@@ -1,0 +1,370 @@
+/*
+ESTILOS ESPECÍFICOS: PÁGINA INDEX
+   ========================================================================== */
+
+/* ==========================================================================
+   1. TARJETAS DE CLASES (GALERÍA DESLIZABLE)
+   Sección que muestra las modalidades. Ahora con fondo crema para fundirse
+   con el contenido superior.
+   ========================================================================== */
+
+.galeria-wrapper {
+  width: 100%;
+  background-color: var(--color-crema); /* Cambiado de negro a crema según petición */
+  overflow: hidden;
+  border-top: 1px solid var(--negro-suave); /* Borde sutil oscuro para separar del Hero */
+  margin-top: var(--espacio-chico); /* Espacio de 8px respecto al Hero */
+}
+
+.galeria {
+  display: flex;
+  width: 100%; /* Permitimos que el contenedor respete el ancho de la pantalla */
+  overflow-x: auto; /* Habilitamos el scroll horizontal */
+  gap: var(--espacio-chico);
+}
+
+/* Oculta la barra de scroll para que quede más limpio */
+.galeria::-webkit-scrollbar {
+  display: none;
+}
+
+.galeria-card {
+  flex: 0 0 auto;
+  /* Dividimos el ancho total en 4 partes iguales restando los 3 gaps de 8px (espacio-chico).
+     Esto garantiza que el centro del segundo gap coincida exactamente con el eje central 
+     de la pantalla (50vw), alineándose con el cuadrado negro central de la nav. */
+  width: calc((100vw - (3 * var(--espacio-chico))) / 4);
+  height: var(--alto-medio);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  padding: var(--espacio-grande); /* 24px de aire interno */
+  border-right: 1px solid var(--negro-suave); /* Separador visual entre tarjetas */
+}
+
+.card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Transición elegante */
+}
+
+.card-img.hover-img {
+  opacity: 0;
+  z-index: 1;
+}
+
+.galeria-card:hover .card-img.hover-img {
+  opacity: 1;
+}
+
+.card-title {
+  position: relative;
+  z-index: 2;
+  color: var(--color-negro); /* Texto negro para resaltar sobre el fondo crema */
+  text-align: center;
+  margin: 0;
+  pointer-events: none;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: var(--espacio-grande);
+  left: var(--espacio-grande);
+  right: var(--espacio-grande);
+  height: var(--alto-nav); /* Usamos la altura estándar de navegación para consistencia */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  text-decoration: none;
+  color: var(--color-crema);
+  border: 1px solid var(--color-crema);
+  border-radius: 0;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+/* Estado: Cuando el ratón entra en la tarjeta (cambio a imagen secundaria) */
+.galeria-card:hover .card-btn {
+  background-color: var(--color-crema);
+  color: var(--color-negro);
+}
+
+/* Estado: Cuando el ratón entra específicamente en el botón */
+.galeria-card .card-btn:hover {
+  background-color: var(--color-negro);
+  color: var(--color-crema);
+  border-color: var(--color-negro);
+}
+
+/* ==========================================================================
+   2. SECCIÓN FILOSOFÍA
+   Bloque de texto central con etiquetas laterales rotadas.
+   ========================================================================== */
+
+.bloque-filosofia {
+  width: 100%;
+  height: var(--alto-medio);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--color-crema);
+  color: var(--color-negro);
+  padding: 80px 150px; /* Padding superior de 80px y 48px laterales como pediste */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bloque-filosofia-inner {
+  width: 100%; /* Forzamos que el contenedor use todo el ancho disponible entre los paddings */
+  max-width: 100%; /* El texto ahora se expande hasta los márgenes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px; /* Espaciado entre el título y el párrafo */
+  text-align: center;
+}
+
+.titulo-filosofia {
+  margin: 0;
+}
+
+.filosofia-label {
+  position: absolute;
+  white-space: nowrap;
+  top: 80px; /* Alineado con el inicio del texto (padding-top del bloque) */
+  transform-origin: center;
+}
+
+.filosofia-label.izquierda {
+  left: var(--espacio-grande);
+  transform: rotate(-90deg);
+}
+
+.filosofia-label.derecha {
+  right: var(--espacio-grande);
+  transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   3. SECCIÓN CLUB E INSTALACIONES
+   Layout dividido al 50% con carrusel de imágenes y ficha técnica de salas.
+   ========================================================================== */
+
+.seccion-club {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Ajustado para que ocupe exactamente el tamaño del viewport */
+  background-color: var(--color-crema); /* Fondo crema */
+  color: var(--color-negro);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.club-carrusel {
+  flex: 0 0 50%; /* Ocupa exactamente la mitad izquierda */
+  display: flex;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  -webkit-overflow-scrolling: touch; /* Desplazamiento suave en iOS */
+  scroll-behavior: smooth; /* Desplazamiento suave para el carrusel automático */
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+}
+
+.club-carrusel::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en navegadores Webkit */
+}
+
+.carrusel-imagen {
+  flex: 0 0 100%; /* Cada imagen ocupa el 100% de su contenedor (la mitad de la página) */
+  height: 100%;
+  object-fit: cover;
+}
+
+.club-info-lateral {
+  flex: 0 0 50%; /* Ocupa exactamente la mitad derecha */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 56px;
+  box-sizing: border-box;
+  gap: 8px;
+}
+
+.club-info-imagen {
+  width: 100%;
+  height: 346px; /* Altura original */
+  object-fit: cover;
+}
+
+.club-info-contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0 0 0; /* Eliminamos el padding lateral del contenedor para controlarlo en los hijos */
+  gap: var(--espacio-grande);
+  text-align: center;
+}
+
+.club-info-texto-grupo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.club-info-titulos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Dividimos el espacio en 6 columnas exactas */
+  width: 100%;
+}
+
+.club-info-titulo-item {
+  margin: 0;
+  white-space: nowrap;
+  justify-self: center; /* Centramos el texto dentro de su columna asignada */
+}
+
+.club-info-titulo-item:first-child {
+  grid-column: 2; /* Alineado a la segunda columna de las 6 */
+}
+
+.club-info-titulo-item:last-child {
+  grid-column: 5; /* Alineado a la quinta columna de las 6 */
+}
+
+.club-info-descripcion-wrapper {
+  width: 100%;
+  padding: 0 24px; /* Padding interior de 24px a izquierda y derecha */
+  box-sizing: border-box;
+}
+
+.club-info-descripcion {
+  position: relative;
+  text-transform: none; /* Cambiado a formato estándar (Mayúsculas y minúsculas) */
+  width: 100%;
+}
+
+.club-info-boton {
+  text-decoration: none;
+  border-radius: 2px;
+  padding: 10px 14px;
+  background-color: var(--color-negro);
+  color: var(--color-crema);
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+.club-info-boton:hover {
+  opacity: 0.8;
+}
+
+.club-info-contador {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 40px;
+  gap: var(--espacio-grande);
+  width: 100%;
+  max-width: 550px; /* Mantiene el ancho original como máximo para no estirar los números */
+}
+
+.club-info-contador-item {
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. AJUSTES MÓVIL (RESPONSIVE)
+   Reconfiguración de layouts para asegurar la lectura en pantallas pequeñas.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .galeria-wrapper {
+    overflow: visible;
+  }
+
+  .galeria {
+    flex-direction: row; /* Forzamos horizontal para mantener el scroll infinito */
+    padding: var(--espacio-grande);
+    scroll-snap-type: x mandatory;
+  }
+
+  .galeria-card {
+    width: 70vw; /* En móvil, las tarjetas son más anchas para que se vea el contenido */
+    flex: 0 0 70vw;
+    scroll-snap-align: center;
+  }
+
+  .bloque-filosofia {
+    flex-direction: column;
+    height: auto;
+    padding: 60px 20px;
+    gap: 30px;
+  }
+
+  .filosofia-label {
+    position: static; /* Quitamos el absoluto */
+    transform: none; /* Quitamos la rotación */
+    writing-mode: horizontal-tb;
+    text-align: center;
+    font-size: var(--tamano-etiqueta);
+    opacity: 0.5;
+  }
+
+  .filosofia-label.izquierda {
+    order: 1;
+  } /* Se posiciona arriba */
+  .bloque-filosofia-inner {
+    order: 2;
+    width: 100%;
+  }
+  .filosofia-label.derecha {
+    order: 3;
+  } /* Se posiciona abajo */
+
+  .seccion-club {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .club-carrusel {
+    display: none; /* Ocultamos las fotos del carrusel */
+  }
+
+  .club-info-lateral {
+    width: 100%;
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .club-info-imagen {
+    height: 300px; /* Imagen de cabecera para la info */
+  }
+
+  .club-info-titulos {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .club-info-contador {
+    padding: 0 20px;
+  }
+}
