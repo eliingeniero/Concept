@@ -1,0 +1,44 @@
+/* ==========================================================================
+   SECCIÓN ÚNETE AL CLUB
+   ========================================================================== */
+
+.unete-form {
+    max-width: 800px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-24);
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 200px;
+}
+
+.unete-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.unete-grupo--completo {
+    grid-column: span 1;
+}
+
+.unete-campo {
+    padding: 12px;
+    border: 0.5px solid var(--color-negro);
+    background-color: var(--color-blanco-secundario);
+    outline: none;
+}
+
+.unete-grupo h7 {
+    margin-left: var(--gap-8); /* o center */
+}
+
+/* ==========================================================================
+   RESPONSIVE: MÓVIL
+   ========================================================================== */
+@media (max-width: 768px) {
+    .unete-form {
+        width: 90%;
+    }
+}

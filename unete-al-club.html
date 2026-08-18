@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+        <link rel="stylesheet" href="css/globales.css" />
+        <link rel="stylesheet" href="css/componentes/app.css" />
+        <link rel="stylesheet" href="css/unete-al-club.css" />
+        <script src="js/scripts-comunes.js"></script>
+        <title>Concept Cero - Únete al Club</title>
+    </head>
+    <body data-logorario-theme="dark">
+        <div id="nav-superior-placeholder"></div>
+
+        <div class="home">
+            <main class="contenido-base">
+                <section class="seccion-base seccion-secundaria">
+                    <div id="logorario-placeholder"></div>
+
+                    <h3 class="titulo-secundario">ÚNETE AL CLUB</h3>
+                    <p class="subtitulo-secundario">Puedes completar el siguiente formulario para registrarte en nuestro centro. Además, como regalo de bienvenida, te regalamos una clase de prueba. Cuando completes tu registro, podrás hacer la reserva de la misma directamente desde la app.</p>
+
+                    <form
+                        class="unete-form"
+                        onsubmit="
+                            alert('¬¬ Ya me diréis qué hago.... ¬¬');
+                            return false;
+                        "
+                    >
+                        <div class="unete-grupo">
+                            <h7 for="nombre">NOMBRE</h7>
+                            <input type="text" id="nombre" name="nombre" class="unete-campo" required />
+                        </div>
+                        <div class="unete-grupo">
+                            <h7 for="apellidos">APELLIDOS</h7>
+                            <input type="text" id="apellidos" name="apellidos" class="unete-campo" required />
+                        </div>
+                        <div class="unete-grupo">
+                            <h7 for="email">E-MAIL</h7>
+                            <input type="email" id="email" name="email" class="unete-campo" required />
+                        </div>
+                        <div class="unete-grupo">
+                            <h7 for="dni">DOCUMENTO DE IDENTIDAD</h7>
+                            <input type="text" id="dni" name="dni" class="unete-campo" required />
+                        </div>
+                        <div class="unete-grupo">
+                            <h7 for="tel">TELÉFONO</h7>
+                            <input type="tel" id="tel" name="tel" class="unete-campo" required />
+                        </div>
+                        <div class="unete-grupo">
+                            <h7 for="nacimiento">FECHA NACIMIENTO</h7>
+                            <input type="date" id="nacimiento" name="nacimiento" class="unete-campo" required />
+                        </div>
+                        <div class="unete-grupo">
+                            <h7 for="tarifa">TARIFA SELECCIONADA</h7>
+                            <select id="tarifa" name="tarifa" class="unete-campo" required>
+                                <option value="" disabled selected>SELECCIONA UNA TARIFA</option>
+                                <option value="individual">PRIMERA CLASE</option>
+                                <option value="bono1">1 CLASE</option>
+                                <option value="bono3">3 CLASES</option>
+                                <option value="bono5">5 CLASES</option>
+                                <option value="bono10">10 CLASES</option>
+                                <option value="player">PLAYER MEMBERSHIP</option>
+                                <option value="pro">PRO MEMBERSHIP</option>
+                                <option value="elite">ELITE MEMBERSHIP</option>
+                            </select>
+                        </div>
+                        <div class="unete-grupo unete-grupo--completo">
+                            <h7 for="observaciones">OBSERVACIONES</h7>
+                            <textarea id="observaciones" name="observaciones" rows="4" class="unete-campo"></textarea>
+                        </div>
+                        <button type="submit" class="boton-negro buttonslinks">ENVIAR</button>
+                    </form>
+                </section>
+                <div id="app-section-placeholder"></div>
+            </main>
+            <div id="footer-placeholder"></div>
+        </div>
+    </body>
+</html>

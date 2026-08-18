@@ -1,0 +1,113 @@
+/* ============================================================
+   VARIABLES Y FUENTES (Design Tokens)
+   ============================================================ */
+@font-face {
+    font-family: "OT Neue Montreal Book";
+    src: url("../../fonts/OTNeueMontreal-BookSqueezed.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OT Neue Montreal Medium";
+    src: url("../../fonts/OTNeueMontreal-MediumSemiSqueezed.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OT Neue Montreal SemiBold";
+    src: url("../../fonts/OTNeueMontreal-SemiBoldExtraSqueezed.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Tamaños base */
+    --tamano-h1: 120px;
+    --tamano-h2: 80px;
+    --tamano-h3: 48px;
+    --tamano-h4: 24px;
+    --tamano-h5: 16px;
+    --tamano-h6: 16px;
+    --tamano-h7: 12px;
+    --tamano-parrafo: 16px;
+    --tamano-botones-links: 18px;
+
+    /* Layout */
+    --alto-nav: 54px;
+    --alto-medio: 519px;
+    --gap-48: 48px;
+    --gap-24: 24px;
+    --gap-8: 8px;
+    --galeria-initial-scroll: 0px;
+
+    /* Tamaños pantallas NUNCA USAR ESTAS VARIABLES. Comentario super importante para el autor.*/
+
+    /* Colores */
+    --color-blanco: #ffffff;
+    --color-blanco-secundario: rgba(251, 247, 238, 0.5);
+    --color-crema: #f6ebd2;
+    --color-crema-25: rgba(246, 235, 210, 0.25);
+    --color-crema-40: rgba(246, 235, 210, 0.4);
+    --color-crema-50: rgba(246, 235, 210, 0.5);
+    --color-crema-90: rgba(246, 235, 210, 0.9);
+    --color-negro: #000;
+    --color-negro-1: rgba(0, 0, 0, 0.1);
+    --color-negro-25: rgba(0, 0, 0, 0.25);
+    --color-negro-50: rgba(0, 0, 0, 0.5);
+    --color-negro-90: rgba(0, 0, 0, 0.9);
+
+    /* Fuentes */
+    --fuente-principal: "OT Neue Montreal Book";
+    --fuente-semi-squee: "OT Neue Montreal Medium";
+    --fuente-extra-squee: "OT Neue Montreal SemiBold";
+
+    /* Logos (se usan en nav y footer) */
+    --logo-superior-url: url("../../img_opti/mainLogoNegative.svg");
+    --logo-footer-url: url("../../img_opti/mainLogoPositive.svg");
+
+    /* ===== TAMAÑOS MÓVIL SEGÚN DISEÑADORA ===== */
+    --tamano-h1-movil: 64px;
+    --line-height-h1-movil: 54.4px;
+    --letter-spacing-h1-movil: -0.03em;
+
+    --tamano-h2-movil: 48px;
+    --line-height-h2-movil: 40.8px;
+    --letter-spacing-h2-movil: -0.03em;
+
+    --tamano-h3-movil: 40px;
+    --line-height-h3-movil: 34px;
+    --letter-spacing-h3-movil: -0.03em;
+
+    --tamano-h4-movil: 20px;
+    --line-height-h4-movil: 24px;
+    --letter-spacing-h4-movil: 0.01em;
+
+    --tamano-h5-movil: 14px;
+    --line-height-h5-movil: 14px;
+    --letter-spacing-h5-movil: 0.02em;
+
+    --tamano-h6-movil: 16px;
+    --line-height-h6-movil: 19.2px;
+    --letter-spacing-h6-movil: 0.05em;
+
+    --tamano-h7-movil: 12px;
+    --line-height-h7-movil: 14.4px;
+    --letter-spacing-h7-movil: 0.02em;
+
+    --tamano-parrafo-movil: 16px;
+    --line-height-parrafo-movil: 18.4px;
+    --letter-spacing-parrafo-movil: 0.02em;
+
+    --tamano-botones-links-movil: 24px;
+    --line-height-botones-links-movil: 28.8px;
+    --letter-spacing-botones-links-movil: 0.03em;
+
+    --tamano-links-movil: 24px;
+    --line-height-links-movil: 28.8px;
+    --letter-spacing-links-movil: 0.02em;
+}

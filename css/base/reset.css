@@ -1,0 +1,28 @@
+/* ============================================================
+   RESET Y CONFIGURACIÓN BASE DE HTML / BODY
+   ============================================================ */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: var(--color-crema);
+    margin: 0;
+}
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    line-height: normal;
+    font-family: var(--fuente-principal), sans-serif;
+    overflow-x: hidden;
+    color: var(--color-negro);
+}

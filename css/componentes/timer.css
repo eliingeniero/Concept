@@ -1,0 +1,33 @@
+/* ============================================================
+   TIMER - Añadido margen superior e inferior
+   ============================================================ */
+#timer-component {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-timer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 550px;
+    padding: 0;
+}
+
+.item-timer {
+    margin: 0;
+}
+
+/* Ajuste en móvil */
+@media (max-width: 768px) {
+    .contenedor-timer {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 550px;
+        padding: var(--gap-24);
+    }
+}

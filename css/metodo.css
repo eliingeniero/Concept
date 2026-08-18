@@ -1,0 +1,213 @@
+/* ==========================================================================
+   BLOQUE 1: INTRODUCCIÓN AL MÉTODO
+   ========================================================================== */
+
+/* Ahora definimos .seccion-metodo con altura automática y sin flex */
+.seccion-metodo {
+    min-height: auto; /* o un valor como 50vh si quieres un mínimo */
+    /*padding-top: var(--alto-nav);
+    padding-left: 0;
+    padding-right: 0;
+    position: relative; 
+    gap: 0; /* o simplemente elimina la línea */
+    /* Sin display:flex ni justify-content, para que el contenido fluya */
+}
+
+.metodo-intro-text {
+    max-width: 900px;
+    text-align: center;
+    margin: 48px auto; /* Añadimos margen vertical de 48px (similar al gap anterior) */
+}
+
+/* Redefinición local por diseño */
+.contenedor-timer {
+    margin: 80px auto;
+}
+
+/* ==========================================================================
+   BLOQUE 2: GALERÍA MÉTODO (TARJETAS CON HOVER)
+   ========================================================================== */
+
+.metodo-card {
+    padding: 0;
+}
+
+.metodo-card-btn {
+    display: none;
+}
+
+.metodo-card-fondo,
+.metodo-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.metodo-card-fondo {
+    object-fit: cover;
+    z-index: 0;
+}
+
+.metodo-card-overlay {
+    background-color: var(--color-negro-25);
+    z-index: 1;
+}
+
+.metodo-card-detalles {
+    position: absolute;
+    top: var(--gap-24);
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+    z-index: 10;
+    color: var(--color-crema);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Textos laterales: a 75px del borde superior */
+.metodo-card-detalles .metodo-card-texto {
+    margin-top: 70px;
+}
+
+.metodo-card-detalles .metodo-card-texto:first-child {
+    grid-column: 4;
+}
+
+.metodo-card-detalles .metodo-card-texto:last-child {
+    grid-column: 9;
+}
+
+/* Bloque central: texto + cuadrado en horizontal, se rota desde la esquina superior derecha */
+.metodo-card-detalles .metodo-card-rotado {
+    grid-column: 6 / 8;
+    justify-self: center;
+    display: inline-block; /* para que se ajuste al contenido */
+    transform: translateX(-65%) rotate(-90deg); /* ← NUEVO: centra horizontalmente */
+    transform-origin: top right; /* ← CLAVE: el cuadrado queda arriba */
+    line-height: 1;
+    margin: 0;
+}
+
+/* Cuadrado al final del texto (a la derecha) */
+.metodo-card-rotado::after {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: currentColor;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.metodo-card-descripcion-wrapper {
+    position: absolute;
+    bottom: var(--gap-8);
+    left: 0;
+    width: 100%;
+    padding: 0 var(--gap-8);
+    z-index: 5;
+    color: var(--color-crema);
+    text-align: center;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.metodo-card-descripcion {
+    max-width: 100%;
+    margin: 0 var(--gap-24) 40px;
+}
+
+.metodo-card-titulo {
+    position: relative;
+    z-index: 5;
+    color: var(--color-crema);
+    text-align: center;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover y estado activo */
+@media (hover: hover) {
+    .metodo-card:hover .metodo-card-detalles,
+    .metodo-card:hover .metodo-card-descripcion-wrapper {
+        opacity: 1;
+    }
+}
+
+.metodo-card:hover .metodo-card-overlay {
+    background-color: var(--color-negro-50);
+}
+
+.metodo-card.info-visible .metodo-card-detalles,
+.metodo-card.info-visible .metodo-card-descripcion-wrapper {
+    opacity: 1;
+}
+
+/* Eliminamos la regla que ocultaba el título cuando la tarjeta está en info-visible */
+/* .metodo-card.info-visible .metodo-card-titulo {
+    opacity: 0;
+    transform: translateY(-10px);
+} */
+
+/* ==========================================================================
+   RESPONSIVE MÓVIL
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .seccion-metodo {
+        gap: 40px;
+        padding-left: var(--gap-24);
+        padding-right: var(--gap-24);
+    }
+
+    .metodo-timer-wrapper {
+        display: none;
+    }
+
+    .metodo-card-detalles {
+        top: var(--gap-8);
+    }
+
+    .metodo-card-descripcion-wrapper {
+        bottom: 50px;
+    }
+    /* Mostrar el botón de cada tarjeta */
+    .metodo-card-btn {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        gap: 8px;
+        width: 96px;
+        height: 25px;
+        background: var(--color-crema-25);
+        pointer-events: auto;
+        cursor: pointer;
+        border: none;
+        transition: opacity 0.2s;
+        color: var(--color-crema);
+        /* Posición absoluta fijada al fondo */
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 6; /* por encima de la imagen y overlay, pero debajo de los detalles si es necesario */
+    }
+
+    .metodo-card-btn:hover {
+        opacity: 0.8;
+    }
+
+    .metodo-card.info-visible .metodo-card-btn {
+        display: none !important;
+    }
+}

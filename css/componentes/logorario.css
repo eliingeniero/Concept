@@ -1,0 +1,70 @@
+/* ============================================================
+   logorario.css - Añadir margen superior para posicionar a 100px
+   ============================================================ */
+
+/* Regla base del logorario (se mantiene el grid) */
+.logorario-parent {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: baseline;
+    color: inherit;
+    pointer-events: none;
+    width: 100%;
+}
+
+/* Cuando está dentro de una sección hero (seccion-index, seccion-metodo, etc.) */
+.seccion-base .logorario-parent {
+    position: relative; /* anula el absolute */
+    top: auto;
+    left: auto;
+    z-index: 2; /* por encima de la imagen de fondo */
+    margin: 0;
+    padding: 0;
+    margin-top: 120px; /* mismo valor que se usa en index */
+}
+
+/* Ajuste de los elementos internos */
+.logorario-horas {
+    text-align: center;
+}
+.logorario-parent .logorario-horas:first-child {
+    grid-column: 5;
+}
+.logorario-parent .logorario-horas:last-child {
+    grid-column: 8;
+}
+
+.wellness-rotado {
+    grid-column: 6 / 8;
+    justify-self: center;
+    white-space: nowrap;
+    width: 0;
+    height: 0;
+    transform: translateY(-40px) rotate(-90deg);
+    transform-origin: center;
+    text-align: right;
+    display: block;
+    line-height: 0;
+}
+
+/* Ajustes móviles para el logorario en flujo */
+@media (max-width: 768px) {
+    .logorario-parent {
+        padding: 0;
+    }
+    .logorario-parent .logorario-horas:first-child {
+        grid-column: 4;
+    }
+    .logorario-parent .logorario-horas:last-child {
+        grid-column: 9;
+    }
+    .logorario-horas {
+        white-space: nowrap; /* Evita el salto de línea */
+    }
+    .seccion-index .logorario-parent {
+        top: auto;
+        padding: 0;
+        margin: 0;
+        margin-top: 120px; /* debajo de los cuadrados-barra-nav */
+    }
+}

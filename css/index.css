@@ -1,0 +1,323 @@
+.br-media {
+    display: none;
+}
+
+/* ==========================================================================
+   BLOQUE 1: GALERÍA DE SERVICIOS (Tarjetas con hover)
+   ========================================================================== */
+
+.card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-img.hover-img {
+    opacity: 0;
+    z-index: 1;
+}
+
+.galeria-card:hover .card-img.hover-img {
+    opacity: 1;
+}
+
+.card-title {
+    position: relative;
+    z-index: 2;
+    color: var(--color-crema);
+    text-align: center;
+    pointer-events: none;
+}
+
+/* ============================================================
+   REDEFINICIÓN ya no necesaria
+   card-btn → es un enlace (<a>) pero con estilo de BOTÓN:
+   - Además incluye borde, fondo transparente, etc.
+   ============================================================ */
+
+.card-btn {
+    position: absolute;
+    bottom: var(--gap-24);
+    left: var(--gap-24);
+    right: var(--gap-24);
+    height: var(--gap-24);
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    text-decoration: none;
+    color: var(--color-crema);
+    border: 1px solid var(--color-crema);
+    transition: all 0.3s ease;
+}
+
+.galeria-card:hover .card-btn {
+    background-color: var(--color-crema);
+    color: var(--color-negro);
+}
+
+.galeria-card .card-btn:hover {
+    background-color: var(--color-negro);
+    color: var(--color-crema);
+    border-color: var(--color-negro);
+}
+
+/* ==========================================================================
+   BLOQUE 2: SECCIÓN FILOSOFÍA
+   ========================================================================== */
+
+.bloque-filosofia {
+    width: 100%;
+    height: var(--alto-medio);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--color-crema);
+    color: var(--color-negro);
+    padding: 80px 150px;
+    overflow: hidden;
+}
+
+.texto-filosofia {
+    margin-top: -30px;
+}
+
+.bloque-filosofia-inner {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    text-align: center;
+}
+
+.filosofia-label {
+    position: absolute;
+    white-space: nowrap;
+    top: 80px;
+}
+
+.filosofia-label.izquierda {
+    left: var(--gap-8);
+    transform: rotate(-90deg);
+}
+
+.filosofia-label.derecha {
+    right: var(--gap-8);
+    transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   BLOQUE 3: SECCIÓN CARRUSEL E INSTALACIONES
+   ========================================================================== */
+
+.bloque-carrusel {
+    display: flex;
+    width: 100%;
+    gap: var(--gap-8);
+    height: 100vh; /* Cambiado de min-height a height fija */
+    background-color: var(--color-crema);
+    color: var(--color-negro);
+    overflow: visible;
+}
+
+.carrusel-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    height: 100%; /* Añadido */
+}
+
+.carrusel-track {
+    display: flex;
+    transition: transform 0.6s ease;
+    will-change: transform;
+    height: 100%; /* Añadido */
+}
+
+.carrusel-imagen {
+    flex: 0 0 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrusel-info-lateral {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 56px;
+    gap: 8px;
+}
+
+.carrusel-info-imagen {
+    width: 100%;
+    height: 346px;
+    object-fit: cover;
+}
+
+.carrusel-info-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 48px 0 0 0;
+    gap: var(--gap-24);
+    text-align: center;
+}
+
+.carrusel-info-texto-grupo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+}
+
+.carrusel-info-titulos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+}
+
+.carrusel-info-titulo-item {
+    margin: 0;
+    white-space: nowrap;
+    justify-self: center;
+}
+
+.carrusel-info-titulo-item:first-child {
+    grid-column: 2;
+}
+
+.carrusel-info-titulo-item:last-child {
+    grid-column: 5;
+}
+
+.carrusel-info-descripcion {
+    position: relative;
+    text-transform: none;
+    width: 100%;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.contenedor-timer {
+    margin: var(--gap-48) auto;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (MÓVIL)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .br-media {
+        display: inline;
+    }
+
+    .subtitulo-base {
+        margin-bottom: var(--gap-48);
+    }
+
+    .subtitulo-extra {
+        display: none;
+    }
+
+    .card-btn {
+        display: flex !important;
+        height: 33px;
+        border: 1px solid var(--color-crema);
+        background-color: transparent;
+        color: var(--color-crema);
+        margin-bottom: var(--gap-8);
+    }
+
+    .texto-filosofia {
+        margin-top: 15px;
+    }
+
+    .bloque-filosofia {
+        flex-direction: column;
+        min-height: 50vh;
+        justify-content: flex-start;
+        gap: var(--gap-24);
+        padding: 0px 20px;
+        top: 40px;
+    }
+
+    .bloque-filosofia-inner {
+        order: unset;
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .filosofia-label {
+        font-size: var(--tamano-h7-movil);
+        top: 40px;
+    }
+
+    .filosofia-label.izquierda {
+        left: -8px;
+    }
+
+    .filosofia-label.derecha {
+        right: -8px;
+    }
+
+    .bloque-carrusel {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .carrusel-wrapper {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex: none;
+        aspect-ratio: 1 / 1;
+    }
+
+    .carrusel-imagen {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carrusel-info-contenido {
+        order: 1;
+        justify-content: flex-start;
+        padding-top: 16px;
+    }
+
+    .carrusel-info-texto-grupo {
+        height: auto;
+        justify-content: center;
+        padding: 16px 20px;
+        gap: 16px;
+        margin-bottom: 100px;
+    }
+
+    .carrusel-info-lateral {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .carrusel-info-imagen {
+        order: 2;
+        width: 100%;
+        height: 258px;
+    }
+}

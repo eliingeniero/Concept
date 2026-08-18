@@ -1,0 +1,135 @@
+/* ============================================================
+   GALERÍA ESTÁNDAR (escritorio)
+   ============================================================ */
+.galeria-wrapper,
+.galeria-track,
+.galeria-card {
+    display: flex;
+}
+
+.galeria-wrapper {
+    width: 100%;
+    height: 50vh;
+    background-color: transparent;
+    overflow: hidden;
+    border-top: none;
+    margin-top: var(--gap-8);
+}
+
+.galeria-track {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    padding-left: var(--gap-8);
+    gap: var(--gap-8);
+    scrollbar-width: none;
+}
+.galeria-track::-webkit-scrollbar {
+    display: none;
+}
+
+.galeria-card {
+    flex: 0 0 50vh;
+    height: 100%;
+    width: 50vh;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    scroll-snap-align: start;
+    border-right: none;
+    background-color: transparent;
+}
+
+.galeria-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Elementos de control (móvil) - ocultos en escritorio */
+.cosas-movil {
+    display: none;
+}
+
+.puntitos {
+    display: flex;
+    gap: 8px;
+}
+.puntitos .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-crema-40);
+    transition: background-color 0.3s;
+}
+.puntitos .dot.active {
+    background-color: var(--color-crema);
+}
+
+/* ============================================================
+   RESPONSIVE: MÓVIL (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+    .galeria-wrapper {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+    }
+    .galeria-track {
+        display: flex;
+        padding: 0 8px;
+        gap: 8px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    .galeria-card {
+        position: relative;
+        width: calc(100vw - 16px);
+        height: calc(100vw - 16px);
+        aspect-ratio: 1 / 1;
+        flex: 0 0 calc(100vw - 16px);
+        overflow: hidden;
+    }
+    .galeria-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .cosas-movil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        position: absolute;
+        bottom: var(--gap-8);
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    .puntitos {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 6px;
+        gap: 4px;
+        background: var(--color-crema-25);
+        border-radius: 10px;
+        pointer-events: auto;
+        height: 16px;
+    }
+    .puntitos .dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--color-crema-50);
+        transition: background-color 0.3s;
+    }
+    .puntitos .dot.active {
+        background: var(--color-crema);
+    }
+}

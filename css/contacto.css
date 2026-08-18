@@ -1,0 +1,131 @@
+/* ==========================================================================
+   BLOQUE 1: SECCIÓN CONTACTO PRINCIPAL
+   ========================================================================== */
+
+.contacto-img-mini {
+    display: block;
+    margin-top: -24px; /* 180px - 54px (padding-top de .seccion-base) */
+    margin-left: var(--gap-24);
+    width: 200px;
+    height: auto;
+}
+
+/* ==========================================================================
+   BLOQUE 2: ESTRUCTURA GRID
+   ========================================================================== */
+
+/* Reemplaza las reglas de .contacto-main-grid por estas: */
+.contacto-main-grid {
+    flex: 1; /* ocupa todo el espacio restante */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-content: center; /* centra el contenido verticalmente */
+    justify-content: center; /* centra el contenido horizontalmente */
+    width: 100%;
+    padding: 0 var(--gap-24);
+    box-sizing: border-box;
+    min-height: 0; /* evita que el grid se desborde */
+}
+
+.contacto-col-izq {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.contacto-col-der {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+/* ==========================================================================
+   BLOQUE 3: SUBGRID DE DATOS
+   ========================================================================== */
+
+.contacto-subgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-24);
+    text-align: left;
+    align-items: start;
+}
+
+.contacto-subgrid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.2;
+}
+
+/* ============================================================
+   REDEFINICIÓN JUSTIFICADA
+   contacto-subgrid-col a/p → anulan text-transform:uppercase
+   de tipografia.css para mantener formato natural en contacto.
+   ============================================================ */
+
+.contacto-subgrid-col a,
+.contacto-subgrid-col p {
+    text-transform: none !important;
+    text-align: start;
+}
+
+/* Ajustar el wrapper del timer para que se comporte como subtitulo-base */
+.contacto-timer-wrapper {
+    width: 100%;
+    padding: 0 var(--gap-24) var(--gap-48); /* mismo padding que .subtitulo-base */
+    margin: 0;
+    flex-shrink: 0; /* evita que se encoja */
+    box-sizing: border-box;
+    text-align: center; /* centra el contenido del timer */
+    /* Eliminar position:relative y z-index si no son necesarios */
+}
+
+/* ==========================================================================
+   BLOQUE 4: RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .contacto-img-mini {
+        position: relative;
+        left: 0;
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+        margin-top: var(--gap-48);
+        margin-bottom: var(--gap-48);
+    }
+
+    .contacto-timer-wrapper {
+        display: none;
+    }
+
+    .contacto-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: start;
+        text-align: left;
+        margin-top: 20px;
+        width: 100%;
+        margin-bottom: var(--gap-48); /* ← Espacio entre el grid y el footer */
+        /* Opcional: evitar que el grid se estire */
+        flex: 0 0 auto;
+    }
+
+    .contacto-col-izq {
+        justify-content: flex-start;
+    }
+
+    .contacto-subgrid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--gap-24);
+    }
+
+    .contacto-subgrid-col:first-child {
+        grid-column: 1 / -1;
+    }
+    .contacto-subgrid-col:nth-child(2),
+    .contacto-subgrid-col:nth-child(3) {
+        grid-column: auto;
+    }
+}

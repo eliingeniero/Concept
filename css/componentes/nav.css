@@ -1,0 +1,258 @@
+.boton-negro {
+    background-color: var(--color-negro);
+    color: var(--color-crema);
+    padding: 12px;
+    width: 200px;
+    transition: opacity 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.boton-negro:hover {
+    background-color: var(--color-crema);
+    color: var(--color-negro);
+}
+
+/* ============================================================
+   BARRA DE NAVEGACIÓN SUPERIOR
+   ============================================================ */
+.barra-nav-superior {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: space-between;
+    padding: 0 24px;
+    min-height: var(--alto-nav);
+    z-index: 1000;
+}
+
+.barra-nav-superior::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-negro-25);
+    z-index: -1;
+}
+
+.barra-nav-superior,
+.nav-columna-izq,
+.nav-columna-cen,
+.nav-columna-der,
+.logo-barra-nav,
+.barra-nav-boton,
+.barra-nav-boton-negro {
+    display: flex;
+    align-items: center;
+}
+
+.nav-columna-izq,
+.nav-columna-cen,
+.nav-columna-der {
+    height: 100%;
+}
+.nav-columna-izq {
+    flex: 1;
+    justify-content: flex-start;
+}
+.nav-columna-cen {
+    flex: 0 0 auto;
+    justify-content: center;
+    gap: 1px;
+}
+.nav-columna-der {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 1px;
+}
+
+.logo-barra-nav {
+    height: 25px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.logo-barra-nav-img {
+    height: 100%;
+    width: 140px;
+    background: var(--logo-superior-url) no-repeat left center / contain;
+}
+
+.barra-nav-boton,
+.barra-nav-boton-negro {
+    justify-content: center;
+    padding: 2px 8px;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    border: 0;
+    cursor: pointer;
+}
+.barra-nav-boton {
+    color: inherit;
+}
+.barra-nav-boton-negro,
+.barra-nav-boton.active {
+    background-color: var(--color-negro);
+    color: var(--color-crema);
+}
+
+.barra-nav-boton:hover,
+.barra-nav-boton-negro:hover,
+.logo-barra-nav:hover {
+    opacity: 0.6;
+}
+
+/* Cuadrados decorativos de la barra (superior e inferior) */
+.cuadrados-wrapper {
+    width: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--gap-24);
+    pointer-events: none;
+    color: var(--color-negro);
+}
+.cuadrado-decorativo {
+    height: 6px;
+    width: 6px;
+    background-color: currentColor;
+}
+.cuadrados-barra-nav {
+    position: absolute;
+    top: 100%;
+    margin-top: 12px;
+    z-index: 3;
+}
+.cuadrados-nav-inferior {
+    position: fixed;
+    bottom: 24px;
+    z-index: 1001;
+}
+
+/* ============================================================
+   MENÚ HAMBURGUESA (solo visible en móvil)
+   ============================================================ */
+.hamburguesa-nav {
+    display: none; /* oculto por defecto (escritorio) */
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1100;
+    position: relative;
+}
+
+.hamburguesa-nav span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+}
+
+.hamburguesa-nav span:nth-child(1) {
+    top: 0;
+}
+.hamburguesa-nav span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.hamburguesa-nav span:nth-child(3) {
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .nav-columna-cen,
+    .nav-columna-der {
+        display: none;
+    }
+
+    .nav-columna-cen {
+        flex: 1; /* ocupa todo el ancho disponible */
+        justify-content: space-evenly; /* reparte el espacio entre botones */
+        gap: 0; /* elimina el gap para que space-evenly funcione */
+    }
+
+    .hamburguesa-nav {
+        order: 2;
+        display: flex;
+    }
+
+    /* Expande solo el fondo para no mover el logo ni la hamburguesa */
+    .barra-nav-superior.menu-abierto::before {
+        height: 100vh;
+        background-color: var(--color-crema-50);
+    }
+
+    .barra-nav-superior.menu-abierto .hamburguesa-nav {
+        position: absolute;
+        right: 24px;
+        height: var(--alto-nav);
+        z-index: 1100;
+    }
+
+    .barra-nav-superior.menu-abierto .hamburguesa-nav span:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .barra-nav-superior.menu-abierto .hamburguesa-nav span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .barra-nav-superior.menu-abierto .hamburguesa-nav span:nth-child(3) {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    /* Posiciona las columnas en el centro y abajo, en fila */
+    .barra-nav-superior.menu-abierto .nav-columna-cen,
+    .barra-nav-superior.menu-abierto .nav-columna-der {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        z-index: 1001;
+    }
+
+    /* Centro de la pantalla */
+    .barra-nav-superior.menu-abierto .nav-columna-cen {
+        top: 50%;
+        transform: translateY(-50%);
+        height: auto; /* Anula el 100% global */
+    }
+
+    .barra-nav-superior.menu-abierto .nav-columna-cen .barra-nav-boton,
+    .barra-nav-superior.menu-abierto .nav-columna-cen .barra-nav-boton-negro {
+        flex: 1;
+        padding: 2px 0;
+        font-size: clamp(16px, 4.5vw, 24px);
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    /* 24px del margen inferior */
+    .barra-nav-superior.menu-abierto .nav-columna-der {
+        top: auto; /* Libera cualquier posición superior heredada */
+        bottom: 24px;
+        height: auto; /* Anula el 100% global */
+    }
+
+    .barra-nav-superior.menu-abierto .cuadrados-barra-nav,
+    .barra-nav-superior.menu-abierto .cuadrados-nav-inferior {
+        display: none;
+    }
+
+    body.menu-abierto-body .cuadrados-footer {
+        display: none;
+    }
+}

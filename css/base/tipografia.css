@@ -1,0 +1,171 @@
+/* ============================================================
+   TIPOGRAFÍA GLOBAL
+   ============================================================ */
+
+/* ---------- RESET DE MÁRGENES ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+p,
+a,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- ESTILOS POR SELECTOR (Escritorio) ---------- */
+
+h1 {
+    font-family: var(--fuente-principal);
+    font-size: var(--tamano-h1);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: var(--fuente-principal);
+    font-size: var(--tamano-h2);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: var(--fuente-principal);
+    font-size: var(--tamano-h3);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: var(--fuente-extra-squee);
+    font-size: var(--tamano-h4);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-family: var(--fuente-semi-squee);
+    font-size: var(--tamano-h5);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-family: var(--fuente-extra-squee);
+    font-size: var(--tamano-h6);
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+h7 {
+    font-family: var(--fuente-semi-squee);
+    font-size: var(--tamano-h7);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: var(--fuente-semi-squee);
+    font-size: var(--tamano-parrafo);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+}
+
+a {
+    font-family: var(--fuente-semi-squee);
+    font-size: var(--tamano-botones-links);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: var(--fuente-extra-squee);
+    font-size: var(--tamano-botones-links);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.buttonslinks {
+    font-family: var(--fuente-extra-squee);
+    letter-spacing: 0.03em;
+}
+
+/* ---------- AJUSTES PARA PANTALLAS PEQUEÑAS (móvil) ---------- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: var(--tamano-h1-movil);
+        line-height: var(--line-height-h1-movil);
+        letter-spacing: var(--letter-spacing-h1-movil);
+    }
+    h2 {
+        font-size: var(--tamano-h2-movil);
+        line-height: var(--line-height-h2-movil);
+        letter-spacing: var(--letter-spacing-h2-movil);
+    }
+    h3 {
+        font-size: var(--tamano-h3-movil);
+        line-height: var(--line-height-h3-movil);
+        letter-spacing: var(--letter-spacing-h3-movil);
+    }
+    h4 {
+        font-size: var(--tamano-h4-movil);
+        line-height: var(--line-height-h4-movil);
+        letter-spacing: var(--letter-spacing-h4-movil);
+    }
+    h5 {
+        font-size: var(--tamano-h5-movil);
+        line-height: var(--line-height-h5-movil);
+        letter-spacing: var(--letter-spacing-h5-movil);
+    }
+    h6 {
+        font-size: var(--tamano-h6-movil);
+        line-height: var(--line-height-h6-movil);
+        letter-spacing: var(--letter-spacing-h6-movil);
+    }
+    h7 {
+        font-size: var(--tamano-h7-movil);
+        line-height: var(--line-height-h7-movil);
+        letter-spacing: var(--letter-spacing-h7-movil);
+    }
+    p {
+        font-size: var(--tamano-parrafo-movil);
+        line-height: var(--line-height-parrafo-movil);
+        letter-spacing: var(--letter-spacing-parrafo-movil);
+        /* No forzamos text-transform aquí, lo dejamos heredar */
+    }
+    a {
+        font-size: var(--tamano-links-movil);
+        line-height: var(--line-height-links-movil);
+        letter-spacing: var(--letter-spacing-links-movil);
+        text-transform: uppercase;
+    }
+    button {
+        font-size: var(--tamano-botones-links-movil);
+        line-height: var(--line-height-botones-links-movil);
+        letter-spacing: var(--letter-spacing-botones-links-movil);
+        text-transform: uppercase;
+    }
+    .buttonslinks {
+        font-size: var(--tamano-botones-links-movil);
+        line-height: var(--line-height-botones-links-movil);
+        letter-spacing: var(--letter-spacing-botones-links-movil);
+        text-transform: uppercase;
+    }
+}
