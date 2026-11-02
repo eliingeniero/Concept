@@ -1,0 +1,279 @@
+/* ==========================================================================
+   CLUB.CSS - Estilos específicos de la página "El Club"
+   ========================================================================== */
+
+/* ==========================================================================
+   BLOQUE 1: HERO Y VIDEO (Sección Superior)
+   ========================================================================== */
+
+.seccion-base.seccion-club {
+    padding: 0 24px;
+}
+
+.seccion-club {
+    position: relative;
+    align-items: center;
+    overflow: visible;
+}
+
+/* Degradado inferior */
+.seccion-club::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, var(--color-crema));
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Vídeo de fondo */
+.club-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.9;
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+/* ===== POSICIONAMIENTO VERTICAL ===== */
+
+.club-texto-arriba,
+.club-timer-arriba,
+.club-titulo,
+.club-timer-abajo,
+.club-texto-abajo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+}
+
+.grupo-superior,
+.grupo-inferior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.club-titulo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    color: var(--color-negro);
+}
+
+.club-texto-arriba {
+    margin-top: 90px;
+    margin-bottom: var(--gap-48);
+    text-align: center;
+    color: var(--color-negro);
+}
+
+.club-timer-arriba {
+    margin-bottom: var(--gap-24);
+    margin-top: 0;
+}
+
+.club-timer-abajo {
+    margin-top: var(--gap-24);
+    margin-bottom: 0;
+}
+
+.club-texto-abajo {
+    margin-top: var(--gap-48);
+    margin-bottom: var(--gap-48);
+    text-align: center;
+    color: var(--color-negro);
+}
+
+/* ==========================================================================
+   BLOQUE 2: CONTENEDOR PRINCIPAL (Sección Debajo)
+   ========================================================================== */
+
+.club-debajo {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 24px;
+    background-color: var(--color-crema);
+    position: relative;
+    z-index: 3;
+    min-height: 100vh;
+    gap: var(--gap-48);
+}
+
+/* ============================================================
+   REPLICA DE CONTACTO: 2 columnas (izq h2 / der texto)
+   Estructura calcada de .contacto-main-grid / .contacto-col-*
+   ============================================================ */
+
+.club-debajo .wellness-rotado {
+    transform: none;
+}
+
+.club-main-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 var(--gap-24);
+    box-sizing: border-box;
+    min-height: 0;
+}
+
+.club-col-izq {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.club-col-der {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--gap-24);
+    height: 100%;
+    max-width: 500px;
+    justify-self: center;
+}
+
+/* Título y párrafos: estilos heredados */
+.club-debajo-h2 {
+    max-width: 600px;
+}
+
+.club-debajo-p {
+    text-align: left;
+    margin: 0;
+}
+
+/* ==========================================================================
+   BLOQUE 4: GALERÍA AUTOMÁTICA
+   ========================================================================== */
+
+.galeria-automatica .galeria-track {
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Soporte <picture> dentro de galeria-card (galería automática del club) */
+.galeria-automatica .galeria-card picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================================
+   BLOQUE 5: RESPONSIVE (MÓVIL)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* ===== HERO ===== */
+    .home {
+        padding-top: 0;
+        overflow-x: hidden;
+    }
+
+    .seccion-base.seccion-club {
+        padding: 0 16px;
+        height: 100vh;
+    }
+
+    .club-texto-arriba {
+        margin-top: 90px;
+        margin-bottom: var(--gap-24);
+        padding: 0 8px;
+    }
+
+    .club-texto-extra {
+        display: none;
+    }
+
+    .club-timer-arriba {
+        margin-bottom: var(--gap-8);
+    }
+
+    .club-titulo {
+        margin: 0;
+    }
+
+    .club-timer-abajo {
+        margin-top: var(--gap-8);
+    }
+
+    .club-texto-abajo {
+        margin-top: var(--gap-24);
+        margin-bottom: var(--gap-24);
+        padding: 0 8px;
+    }
+
+    .grupo-superior,
+    .grupo-inferior {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .club-titulo {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .club-debajo {
+        padding: 20px 24px;
+        height: auto;
+        min-height: auto;
+        justify-content: flex-start;
+    }
+
+    /* Réplica de contacto en móvil */
+    .club-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: start;
+        text-align: left;
+        margin-top: 20px;
+        width: 100%;
+        margin-bottom: var(--gap-48);
+        flex: 0 0 auto;
+        padding: 0;
+    }
+
+    .club-col-izq {
+        justify-content: flex-start;
+    }
+
+    .club-debajo-h2 {
+        max-width: 100%;
+        text-align: left;
+        margin: 0;
+    }
+
+    /* ===== GALERÍA FINAL ===== */
+    .galeria-wrapper {
+        padding-top: var(--gap-24);
+    }
+
+    .galeria-wrapper .galeria-track {
+        scroll-snap-type: none !important;
+    }
+}

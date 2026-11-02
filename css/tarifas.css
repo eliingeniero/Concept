@@ -1,0 +1,290 @@
+/* ==========================================================================
+   TARIFAS - Estilos simplificados
+   ========================================================================== */
+
+/* ============================================================
+   CABECERA DE PESTAÑAS
+   ============================================================ */
+
+.tarifas-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 832px;
+    margin: 0 auto var(--gap-48);
+    padding: 0;
+    gap: 0;
+    box-sizing: border-box;
+}
+
+.tarifas-tab {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 14px;
+    height: 33px;
+    background-color: transparent;
+    border: 0.5px solid var(--color-negro);
+    color: var(--color-negro);
+    font-family: var(--fuente-extra-squee);
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.tarifas-tab:first-child {
+    border-radius: 2px 0 0 2px;
+}
+
+.tarifas-tab:last-child {
+    border-radius: 0 2px 2px 0;
+}
+
+.tarifas-tab + .tarifas-tab {
+    margin-left: -0.5px;
+}
+
+.tarifas-tab.activo {
+    background-color: var(--color-negro);
+    color: var(--color-crema);
+    border-color: var(--color-negro);
+    z-index: 1;
+}
+
+.tarifas-tab:hover:not(.activo) {
+    background-color: var(--color-negro-1);
+}
+
+/* ============================================================
+   PANELES
+   ============================================================ */
+
+.tarifas-panel {
+    display: none;
+    width: 100%;
+    padding: 0 var(--gap-24);
+    box-sizing: border-box;
+}
+
+.tarifas-panel.activo {
+    display: block;
+}
+
+.tarifas-panel-subtitulo {
+    text-align: center;
+    margin: 0 auto var(--gap-48);
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* ============================================================
+   BLOQUES DENTRO DE CADA PANEL
+   ============================================================ */
+
+.tarifas-bloque {
+    width: 100%;
+    margin-bottom: 120px;
+}
+
+.tarifas-bloque:last-child {
+    margin-bottom: 0;
+}
+
+.titulo-bloque-tarifas {
+    text-align: center;
+    margin-bottom: var(--gap-8);
+}
+
+.subtitulo-bloque-tarifas {
+    text-align: center;
+    margin-bottom: var(--gap-48);
+}
+
+/* ============================================================
+   CONTENEDOR DE TARJETAS
+   ============================================================ */
+
+.tarifas-contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 270px);
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Modificadores para diferentes layouts */
+.tarifas-contenedor--combos {
+    grid-template-columns: 1fr;
+    max-width: 832px;
+}
+
+.tarifas-contenedor--pruebas {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 832px;
+}
+
+.tarifas-contenedor--combos .tarifa-item,
+.tarifas-contenedor--pruebas .tarifa-item {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ============================================================
+   TARJETAS
+   ============================================================ */
+
+.tarifa-item {
+    width: 270px;
+    height: 220px;
+    background-color: var(--color-blanco-secundario);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 var(--gap-24);
+    gap: 6px;
+    box-sizing: border-box;
+}
+
+.tarifa-nombre {
+    margin-top: 32px;
+}
+
+.tarifa-precio {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Bloque de pastillas */
+.tarifa-detalles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.tarifa-texto {
+    background-color: var(--color-negro);
+    color: var(--color-crema);
+    padding: 4px 8px;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.tarifa-caducidad {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: var(--color-negro-50);
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   FOTO PRE-FOOTER
+   ============================================================ */
+
+.tarifas-foto-pre-footer {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 80px;
+}
+
+/* ==========================================================================
+   RESPONSIVE: MÓVIL
+   ========================================================================== */
+@media (max-width: 768px) {
+    .tarifas-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        max-width: 100%;
+        margin-bottom: var(--gap-24);
+        padding: 0 var(--gap-8);
+        scrollbar-width: none;
+    }
+
+    .tarifas-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tarifas-tab {
+        flex: 1 0 auto;
+        padding: 8px 10px;
+        height: 30px;
+        font-size: 13px;
+        line-height: 1;
+        letter-spacing: 0.02em;
+    }
+
+    .tarifas-panel {
+        padding: 0 var(--gap-8);
+    }
+
+    .tarifas-panel-subtitulo {
+        margin-bottom: var(--gap-24);
+        width: 95%;
+        padding: 0;
+    }
+
+    .tarifas-bloque {
+        margin-bottom: 80px;
+    }
+
+    .subtitulo-bloque-tarifas {
+        margin-bottom: var(--gap-24);
+        padding: 0 var(--gap-8);
+    }
+
+    .tarifas-contenedor,
+    .tarifas-contenedor--combos,
+    .tarifas-contenedor--pruebas {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 95%;
+        max-width: 100%;
+        justify-items: center;
+    }
+
+    .tarifa-item {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .tarifas-contenedor--combos .tarifa-item,
+    .tarifas-contenedor--pruebas .tarifa-item {
+        max-width: 100%;
+    }
+
+    .tarifa-texto {
+        padding: 4px 10px;
+    }
+
+    .tarifas-foto-pre-footer {
+        margin-top: var(--gap-48);
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+    }
+}

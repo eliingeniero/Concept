@@ -1,0 +1,21 @@
+/* ============================================================
+   HORARIOS 
+============================================================ */
+
+.horarios-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 150px;
+}
+
+@media (max-width: 768px) {
+    .horarios-img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: var(--gap-48);
+    }
+}

@@ -1,0 +1,156 @@
+/* ==========================================================================
+   BLOQUE 1: SECCIÓN CONTACTO PRINCIPAL
+   ========================================================================== */
+
+/* Override: en contacto la sección ocupa 60vh, no 100vh */
+.seccion-base.seccion-contacto {
+    min-height: 60vh;
+}
+
+/* ==========================================================================
+   BLOQUE 2: ESTRUCTURA GRID
+   ========================================================================== */
+
+.contacto-main-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 var(--gap-24);
+    box-sizing: border-box;
+    min-height: 0;
+}
+
+.contacto-col-izq {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.contacto-col-der {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+/* ==========================================================================
+   BLOQUE 3: SUBGRID DE DATOS
+   ========================================================================== */
+
+.contacto-subgrid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: var(--gap-24);
+    text-align: left;
+    align-items: start;
+}
+
+.contacto-subgrid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.2;
+}
+
+.contacto-subgrid-col a,
+.contacto-subgrid-col p {
+    text-transform: none !important;
+    text-align: start;
+}
+
+/* ==========================================================================
+   BLOQUE 4: FOTO CONTACTO FULL WIDTH
+   ========================================================================== */
+
+.contacto-foto-full {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.contacto-foto-full img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   BLOQUE 5: RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .seccion-base.seccion-contacto {
+        min-height: auto;
+        padding-left: var(--gap-24);
+        padding-right: var(--gap-24);
+    }
+
+    /* Centrado del contenedor izquierdo */
+    .contacto-col-izq {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Título con el mismo margen que en layout.css y centrado */
+    .titulo-secundario {
+        white-space: nowrap;
+        text-align: center;
+        margin: 40px 0;
+        width: 100%; /* Se cambia el calc por 100% */
+    }
+
+    .contacto-img-mini {
+        position: relative;
+        left: 0;
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+        margin-top: var(--gap-48);
+        margin-bottom: var(--gap-48);
+    }
+
+    .contacto-timer-wrapper {
+        display: none;
+    }
+
+    .contacto-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: start;
+        text-align: left;
+        margin-top: 0; /* Eliminado el margen superior para igualar la altura */
+        width: 100%;
+        margin-bottom: var(--gap-48);
+        flex: 0 0 auto;
+        padding: 0;
+    }
+
+    .contacto-subgrid {
+        grid-template-columns: 6fr 4fr;
+        gap: var(--gap-24);
+    }
+
+    .contacto-subgrid-col:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .contacto-subgrid-col:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .contacto-subgrid-col:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .contacto-subgrid-col:nth-child(1) p,
+    .contacto-subgrid-col:nth-child(2) p {
+        white-space: nowrap;
+    }
+}

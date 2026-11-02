@@ -1,0 +1,68 @@
+/* ============================================================
+   SECCIÓN APP (promoción y vídeo difuminado)
+   ============================================================ */
+.seccion-app {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    text-align: center;
+    background-color: var(--color-crema);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, var(--color-crema) 50px);
+    mask-image: linear-gradient(to bottom, transparent 0%, var(--color-crema) 50px);
+}
+
+.video-fondo-app,
+.contenido-app {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-fondo-app {
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+.contenido-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    color: var(--color-negro);
+    padding: var(--gap-24);
+}
+
+.app-description {
+    margin-top: var(--gap-24);
+}
+
+.app-buttons {
+    display: flex;
+    gap: var(--gap-24);
+    justify-content: center;
+    margin-top: 40px;
+}
+.app-badge-wrapper {
+    height: 35px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-buttons img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.2s;
+}
+.app-buttons a:hover {
+    opacity: 0.7;
+}

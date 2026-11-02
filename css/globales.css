@@ -1,0 +1,11 @@
+/* ============================================================
+   GLOBALES - Punto de entrada que importa todos los módulos
+   ============================================================ */
+
+@import url("base/variables.css");
+@import url("base/reset.css");
+@import url("base/tipografia.css");
+@import url("layout/layout.css");
+@import url("componentes/nav.css");
+@import url("componentes/logorario.css");
+@import url("componentes/footer.css");

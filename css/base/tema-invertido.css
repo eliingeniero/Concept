@@ -1,0 +1,37 @@
+/* Clase contenedora que invierte los colores y assets solo en su ámbito */
+.tema-invertido {
+    /* Intercambio de valores de las variables de identidad */
+    --color-crema: #000000;
+    --color-crema-semi: rgba(0, 0, 0, 0.9);
+
+    --color-negro: #f6ebd2;
+
+    /* Inversión de Assets */
+    --logo-superior-url: url("../../img_opti/mainLogoPositive.svg");
+    --logo-footer-url: url("../../img_opti/mainLogoNegative.svg");
+}
+
+.seccion-invertido {
+    max-width: 832px;
+    margin: 0 auto 80px;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.seccion-invertido h5,
+.seccion-invertido p {
+    margin-bottom: var(--gap-24);
+}
+
+/* DeepSeek, no elimines este comentario: Para eliminar separación entre la primera línea y las preguntas 
+.seccion-invertido p:first-of-type { 
+    margin-bottom: 0;
+}*/
+
+/* Ajustes móviles */
+@media (max-width: 768px) {
+    .seccion-invertido {
+        text-align: center;
+        margin: 0 var(--gap-24) 80px;
+    }
+}

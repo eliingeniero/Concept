@@ -1,0 +1,42 @@
+/* ============================================================
+   logorario.css - Logorario simple: circulo + texto rotado
+   ============================================================ */
+
+.logorario-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-8);
+    color: inherit;
+    pointer-events: none;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.seccion-base .logorario-parent {
+    position: relative;
+    z-index: 2;
+}
+
+.circulo-decorativo {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.wellness-rotado {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    line-height: 1;
+    margin-top: 7px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .seccion-index .logorario-parent {
+        margin-top: 10px;
+    }
+}
